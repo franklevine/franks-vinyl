@@ -46,10 +46,10 @@
 
 html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--text); font-family:'DM Mono', monospace; }
 
-/* ââ APP SHELL ââ */
+/* &#9472;&#9472; APP SHELL &#9472;&#9472; */
 #app { display:flex; flex-direction:column; height:100dvh; max-width:600px; margin:0 auto; position:relative; }
 
-/* ââ TOP BAR ââ */
+/* &#9472;&#9472; TOP BAR &#9472;&#9472; */
 #topbar {
   flex-shrink:0;
   background:rgba(10,10,10,0.95);
@@ -70,7 +70,7 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 .edit-btn.unlocked { color:var(--accent); border-color:var(--accent); background:var(--accent-dim); }
 .pending-badge-top { background:var(--accent); color:#0a0a0a; font-size:10px; font-weight:500; border-radius:10px; padding:2px 7px; min-width:20px; text-align:center; }
 
-/* ââ SEARCH + FILTERS (catalog) ââ */
+/* &#9472;&#9472; SEARCH + FILTERS (catalog) &#9472;&#9472; */
 #search-bar {
   flex-shrink:0;
   background:var(--bg);
@@ -98,7 +98,7 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 .chip:hover { border-color:var(--accent); color:var(--accent); }
 .chip.active { background:var(--accent); border-color:var(--accent); color:#0a0a0a; font-weight:500; }
 
-/* ââ STATS BAR ââ */
+/* &#9472;&#9472; STATS BAR &#9472;&#9472; */
 #stats-bar {
   flex-shrink:0; display:flex; justify-content:space-between; align-items:center;
   padding:7px 16px; border-bottom:1px solid var(--border); background:var(--bg);
@@ -108,10 +108,10 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 .sort-btn { background:none; border:none; font-family:'DM Mono',monospace; font-size:var(--fs-xs); color:var(--text-muted); cursor:pointer; padding:0; transition:color 0.15s; }
 .sort-btn.active { color:var(--accent); }
 
-/* ââ CONTENT AREA ââ */
+/* &#9472;&#9472; CONTENT AREA &#9472;&#9472; */
 #content { flex:1; overflow-y:auto; overflow-x:hidden; -webkit-overflow-scrolling:touch; }
 
-/* ââ CATALOG GRID ââ */
+/* &#9472;&#9472; CATALOG GRID &#9472;&#9472; */
 .grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--border); }
 @media(min-width:480px){ .grid { grid-template-columns:repeat(3,1fr); } }
 
@@ -143,7 +143,7 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 .star-sm.on { color:var(--accent); }
 .star-sm.off { color:var(--border2); }
 
-/* ââ DETAIL VIEW ââ */
+/* &#9472;&#9472; DETAIL VIEW &#9472;&#9472; */
 #detail-view { display:none; padding:0 0 120px; }
 #detail-view.visible { display:block; }
 
@@ -197,12 +197,12 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 .discogs-link { display:flex; align-items:center; justify-content:center; gap:6px; padding:12px; border-radius:8px; border:1px solid var(--border2); color:var(--blue); font-size:var(--fs-sm); text-decoration:none; }
 .discogs-link:hover { background:var(--blue-dim); }
 
-/* ââ SAVE BAR ââ */
+/* &#9472;&#9472; SAVE BAR &#9472;&#9472; */
 #save-bar { position:absolute; bottom:64px; left:0; right:0; padding:0 16px 8px; z-index:40; display:none; }
 #save-bar.visible { display:block; }
 .save-btn-main { width:100%; background:var(--accent); border:none; border-radius:10px; padding:14px; font-family:'DM Mono',monospace; font-size:var(--fs-md); font-weight:500; color:#0a0a0a; cursor:pointer; }
 
-/* ââ BOTTOM NAV ââ */
+/* &#9472;&#9472; BOTTOM NAV &#9472;&#9472; */
 #bottom-nav {
   flex-shrink:0; background:rgba(14,14,14,0.97); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
   border-top:1px solid var(--border); display:flex; height:64px; position:relative; z-index:45;
@@ -214,12 +214,12 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 .nav-tab.active .nav-label { color:var(--accent); }
 .nav-badge { background:var(--accent); color:#0a0a0a; font-size:9px; font-weight:700; border-radius:8px; padding:1px 5px; position:absolute; top:-2px; right:-2px; }
 
-/* ââ EMPTY ââ */
+/* &#9472;&#9472; EMPTY &#9472;&#9472; */
 .empty-state { padding:60px 20px; text-align:center; color:var(--text-muted); }
 .empty-icon { font-size:48px; margin-bottom:12px; opacity:0.3; }
 .empty-text { font-size:var(--fs-md); }
 
-/* ââ PLAYING TAB ââ */
+/* &#9472;&#9472; PLAYING TAB &#9472;&#9472; */
 #playing-view { padding:16px 16px 120px; display:none; }
 #playing-view.visible { display:block; }
 .now-playing-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px; text-align:center; }
@@ -249,7 +249,7 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 .notes-ta:focus { border-color:var(--accent); }
 .notes-ta::placeholder { color:var(--text-muted); }
 
-/* ââ SEARCH TAB ââ */
+/* &#9472;&#9472; SEARCH TAB &#9472;&#9472; */
 #search-view { padding:0 0 80px; display:none; }
 #search-view.visible { display:block; }
 .search-view-bar { padding:14px 16px; border-bottom:1px solid var(--border); }
@@ -267,7 +267,7 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 .have-want { background:var(--accent-dim); color:var(--accent); }
 .add-want-btn { display:block; width:calc(100% - 32px); margin:12px 16px; padding:13px; border-radius:8px; border:1px solid var(--blue); background:var(--blue-dim); color:var(--blue); font-family:'DM Mono',monospace; font-size:var(--fs-sm); cursor:pointer; text-align:center; }
 
-/* ââ WANTLIST TAB ââ */
+/* &#9472;&#9472; WANTLIST TAB &#9472;&#9472; */
 #wantlist-view { padding:0 0 80px; display:none; }
 #wantlist-view.visible { display:block; }
 .claude-hint { display:flex; align-items:center; gap:10px; padding:12px 16px; background:var(--surface); border-bottom:1px solid var(--border); }
@@ -281,7 +281,7 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 .want-price { font-size:12px; color:var(--text-muted); margin-top:2px; }
 .got-btn { padding:7px 13px; border-radius:20px; border:1px solid var(--green); background:var(--green-dim); color:var(--green); font-family:'DM Mono',monospace; font-size:12px; cursor:pointer; white-space:nowrap; }
 
-/* ââ PENDING TAB ââ */
+/* &#9472;&#9472; PENDING TAB &#9472;&#9472; */
 #pending-view { padding:0 0 80px; display:none; }
 #pending-view.visible { display:block; }
 .pending-item { padding:14px 16px; border-bottom:1px solid var(--border); cursor:pointer; }
@@ -293,7 +293,7 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 .p-confirm { flex:1; padding:9px; border-radius:6px; background:var(--green); border:none; font-family:'DM Mono',monospace; font-size:var(--fs-xs); color:#0a0a0a; cursor:pointer; font-weight:500; }
 .p-flag { flex:1; padding:9px; border-radius:6px; background:var(--surface2); border:1px solid var(--border2); font-family:'DM Mono',monospace; font-size:var(--fs-xs); color:var(--text-muted); cursor:pointer; }
 
-/* ââ PIN OVERLAY ââ */
+/* &#9472;&#9472; PIN OVERLAY &#9472;&#9472; */
 #pin-overlay { position:absolute; inset:0; background:rgba(10,10,10,0.96); z-index:200; display:none; flex-direction:column; align-items:center; justify-content:center; gap:0; backdrop-filter:blur(12px); }
 #pin-overlay.visible { display:flex; }
 .pin-title { font-family:'Playfair Display',serif; font-size:var(--fs-xl); color:var(--text); margin-bottom:6px; }
@@ -309,7 +309,7 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 .pin-key.cancel-key { font-size:var(--fs-xs); color:var(--text-muted); }
 .pin-error { font-size:var(--fs-sm); color:var(--red); margin-top:16px; height:20px; }
 
-/* ââ UNSAVED SHEET ââ */
+/* &#9472;&#9472; UNSAVED SHEET &#9472;&#9472; */
 #unsaved-sheet { position:absolute; bottom:0; left:0; right:0; background:var(--surface); border-top:1px solid var(--border2); border-radius:16px 16px 0 0; z-index:180; padding:16px; display:none; }
 #unsaved-sheet.visible { display:block; }
 .us-title { font-size:var(--fs-md); font-weight:500; color:var(--text); margin-bottom:4px; }
@@ -318,18 +318,18 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 .us-save { flex:1; padding:13px; border-radius:8px; background:var(--accent); border:none; font-family:'DM Mono',monospace; font-size:var(--fs-sm); font-weight:500; color:#0a0a0a; cursor:pointer; }
 .us-discard { flex:1; padding:13px; border-radius:8px; background:var(--surface2); border:1px solid var(--border2); font-family:'DM Mono',monospace; font-size:var(--fs-sm); color:var(--text-muted); cursor:pointer; }
 
-/* ââ OFFLINE BANNER ââ */
+/* &#9472;&#9472; OFFLINE BANNER &#9472;&#9472; */
 #offline-banner { background:#2a1010; border-bottom:1px solid #4a1a1a; padding:8px 16px; font-size:var(--fs-xs); color:var(--red); text-align:center; display:none; letter-spacing:0.08em; }
 #offline-banner.visible { display:block; }
 
-/* ââ INSTALL BANNER ââ */
+/* &#9472;&#9472; INSTALL BANNER &#9472;&#9472; */
 #install-banner { background:var(--surface); border-bottom:1px solid var(--border); padding:10px 16px; display:none; align-items:center; justify-content:space-between; gap:10px; }
 #install-banner.visible { display:flex; }
 .install-text { font-size:var(--fs-xs); color:var(--text-muted); }
 .install-btn { padding:6px 14px; border-radius:20px; background:var(--accent); border:none; font-family:'DM Mono',monospace; font-size:var(--fs-xs); color:#0a0a0a; cursor:pointer; white-space:nowrap; }
 .install-dismiss { font-size:var(--fs-md); color:var(--text-muted); cursor:pointer; padding:4px; }
 
-/* ââ ANIMATIONS ââ */
+/* &#9472;&#9472; ANIMATIONS &#9472;&#9472; */
 @keyframes fadeUp { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
 @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)} 40%{transform:translateX(8px)} 60%{transform:translateX(-5px)} 80%{transform:translateX(5px)} }
 .shake { animation:shake 0.4s ease; }
@@ -340,25 +340,25 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 <div id="app">
 
   <!-- OFFLINE -->
-  <div id="offline-banner">â Offline â showing cached data</div>
+  <div id="offline-banner">&#9676; Offline &#8212; showing cached data</div>
 
   <!-- INSTALL -->
   <div id="install-banner">
     <span class="install-text">Add Frank's Vinyl to your home screen</span>
     <button class="install-btn" id="install-btn">Add</button>
-    <span class="install-dismiss" id="install-dismiss">â</span>
+    <span class="install-dismiss" id="install-dismiss">&#10005;</span>
   </div>
 
   <!-- TOP BAR -->
   <div id="topbar">
     <div class="topbar-row">
       <div style="display:flex;align-items:center;gap:10px;">
-        <div class="topbar-back" id="topbar-back" onclick="goBack()">â back</div>
+        <div class="topbar-back" id="topbar-back" onclick="goBack()">&#8592; back</div>
         <div class="topbar-title" id="topbar-title">Frank's <span>Vinyl</span></div>
       </div>
       <div class="topbar-right">
         <div id="edit-btn" class="edit-btn" onclick="toggleEdit()">
-          <span id="edit-icon">â</span>
+          <span id="edit-icon">&#9998;</span>
           <span id="edit-label">Edit</span>
         </div>
       </div>
@@ -368,16 +368,16 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
   <!-- SEARCH + FILTERS (shown only on catalog tab) -->
   <div id="search-bar">
     <div class="search-wrap">
-      <span class="search-icon">â</span>
-      <input type="search" id="search-input" class="search-input" placeholder="Artist, title, label, genreâ¦" autocomplete="off" autocorrect="off" spellcheck="false">
-      <span class="search-clear" id="search-clear" onclick="clearSearch()">â</span>
+      <span class="search-icon">&#8981;</span>
+      <input type="search" id="search-input" class="search-input" placeholder="Artist, title, label, genre&#8230;" autocomplete="off" autocorrect="off" spellcheck="false">
+      <span class="search-clear" id="search-clear" onclick="clearSearch()">&#10005;</span>
     </div>
     <div class="filters-scroll" id="filter-chips">
       <div class="chip active" data-filter="all">All</div>
-      <div class="chip" data-filter="âââââ">âââââ</div>
-      <div class="chip" data-filter="ââââ">ââââ</div>
+      <div class="chip" data-filter="&#9733;&#9733;&#9733;&#9733;&#9733;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="chip" data-filter="&#9733;&#9733;&#9733;&#9733;">&#9733;&#9733;&#9733;&#9733;</div>
       <div class="chip" data-filter="LP">LP</div>
-      <div class="chip" data-filter="2xLP">2ÃLP</div>
+      <div class="chip" data-filter="2xLP">2&#215;LP</div>
       <div class="chip" data-filter="12inch">12"</div>
       <div class="chip" data-filter="CD">CD</div>
       <div class="chip" data-filter="Jazz">Jazz</div>
@@ -392,9 +392,9 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 
   <!-- STATS BAR -->
   <div id="stats-bar">
-    <span class="stats-count" id="stats-count">â records</span>
+    <span class="stats-count" id="stats-count">&#8212; records</span>
     <div class="sort-row">
-      <button class="sort-btn active" data-sort="artist" id="sort-artist">Artist â</button>
+      <button class="sort-btn active" data-sort="artist" id="sort-artist">Artist &#8593;</button>
       <button class="sort-btn" data-sort="year" id="sort-year">Year</button>
       <button class="sort-btn" data-sort="rating" id="sort-rating">Rating</button>
       <button class="sort-btn" data-sort="added" id="sort-added">Added</button>
@@ -435,9 +435,9 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
       <div class="detail-section" id="play-section">
         <div class="detail-section-title">Plays</div>
         <div class="play-count-ctrl">
-          <button class="play-btn" id="play-minus">â</button>
+          <button class="play-btn" id="play-minus">&#8722;</button>
           <div class="play-count-num" id="play-count-num">0</div>
-          <button class="play-btn" id="play-plus">ï¼</button>
+          <button class="play-btn" id="play-plus">&#65291;</button>
         </div>
       </div>
 
@@ -445,11 +445,11 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
         <div class="detail-section-title">Condition</div>
         <div class="detail-row">
           <span class="detail-key">Media</span>
-          <span class="detail-val" id="cond-media-val">â</span>
+          <span class="detail-val" id="cond-media-val">&#8212;</span>
         </div>
         <div class="detail-row">
           <span class="detail-key">Sleeve</span>
-          <span class="detail-val" id="cond-sleeve-val">â</span>
+          <span class="detail-val" id="cond-sleeve-val">&#8212;</span>
         </div>
       </div>
 
@@ -461,7 +461,7 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
       <div class="detail-section">
         <div class="detail-section-title">Notes</div>
         <div id="notes-display" style="font-size:var(--fs-sm);color:var(--text-dim);line-height:1.5;"></div>
-        <textarea class="notes-ta" id="notes-ta" placeholder="Add a noteâ¦" style="display:none;margin-top:8px;"></textarea>
+        <textarea class="notes-ta" id="notes-ta" placeholder="Add a note&#8230;" style="display:none;margin-top:8px;"></textarea>
       </div>
 
       <div class="discogs-link-row" id="discogs-link-row"></div>
@@ -471,7 +471,7 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
     <div id="playing-view">
       <div class="np-selector" onclick="showRecordPicker()">
         <div class="np-selector-label">Now playing</div>
-        <div class="np-selector-title" id="np-selector-text">Select a recordâ¦ <span style="color:var(--text-muted);">â</span></div>
+        <div class="np-selector-title" id="np-selector-text">Select a record&#8230; <span style="color:var(--text-muted);">&#8595;</span></div>
       </div>
       <div id="now-playing-card" style="display:none;">
         <div class="now-playing-card">
@@ -481,13 +481,13 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
           <div class="np-artist" id="np-artist"></div>
           <div class="np-title" id="np-title"></div>
           <div class="np-stars" id="np-stars"></div>
-          <div class="np-star-label">Frank's rating â tap to set</div>
+          <div class="np-star-label">Frank's rating &#8212; tap to set</div>
           <div class="np-play-row">
             <div>
               <div class="np-play-num" id="np-play-num">0</div>
               <div class="np-play-label">plays</div>
             </div>
-            <button class="np-play-btn" id="np-play-btn">ï¼</button>
+            <button class="np-play-btn" id="np-play-btn">&#65291;</button>
           </div>
         </div>
         <div class="quick-section">
@@ -496,7 +496,7 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
         </div>
         <div class="quick-section">
           <div class="quick-section-title">Notes</div>
-          <textarea class="notes-ta" id="np-notes-ta" placeholder="Add a note about this listenâ¦"></textarea>
+          <textarea class="notes-ta" id="np-notes-ta" placeholder="Add a note about this listen&#8230;"></textarea>
         </div>
       </div>
     </div>
@@ -505,8 +505,8 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
     <div id="search-view">
       <div class="search-view-bar">
         <div class="search-wrap">
-          <span class="search-icon">â</span>
-          <input type="search" id="store-search-input" class="search-input" placeholder="Search your collectionâ¦" autocomplete="off" autocorrect="off" spellcheck="false">
+          <span class="search-icon">&#8981;</span>
+          <input type="search" id="store-search-input" class="search-input" placeholder="Search your collection&#8230;" autocomplete="off" autocorrect="off" spellcheck="false">
         </div>
       </div>
       <div id="store-results"></div>
@@ -515,12 +515,12 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
     <!-- WANTLIST -->
     <div id="wantlist-view">
       <div class="claude-hint">
-        <div class="claude-hint-icon">â¦</div>
-        <div class="claude-hint-text">Text or send Claude a photo of a record you want â it appears here automatically</div>
+        <div class="claude-hint-icon">&#10022;</div>
+        <div class="claude-hint-text">Text or send Claude a photo of a record you want &#8594; it appears here automatically</div>
       </div>
       <div id="wantlist-items"></div>
       <div class="empty-state" id="wantlist-empty" style="display:none;">
-        <div class="empty-icon">â¡</div>
+        <div class="empty-icon">&#9825;</div>
         <div class="empty-text">Your wantlist is empty</div>
       </div>
     </div>
@@ -529,7 +529,7 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
     <div id="pending-view">
       <div id="pending-items"></div>
       <div class="empty-state" id="pending-empty" style="display:none;">
-        <div class="empty-icon">â</div>
+        <div class="empty-icon">&#10003;</div>
         <div class="empty-text">All imports confirmed</div>
       </div>
     </div>
@@ -544,23 +544,23 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
   <!-- BOTTOM NAV -->
   <div id="bottom-nav">
     <button class="nav-tab active" data-tab="catalog" onclick="switchTab('catalog')">
-      <span class="nav-icon">â</span>
+      <span class="nav-icon">&#9678;</span>
       <span class="nav-label">Catalog</span>
     </button>
     <button class="nav-tab" data-tab="playing" onclick="switchTab('playing')">
-      <span class="nav-icon">âª</span>
+      <span class="nav-icon">&#9834;</span>
       <span class="nav-label">Playing</span>
     </button>
     <button class="nav-tab" data-tab="search" onclick="switchTab('search')">
-      <span class="nav-icon">â</span>
+      <span class="nav-icon">&#8981;</span>
       <span class="nav-label">Search</span>
     </button>
     <button class="nav-tab" data-tab="wantlist" onclick="switchTab('wantlist')">
-      <span class="nav-icon">â¡</span>
+      <span class="nav-icon">&#9825;</span>
       <span class="nav-label">Wantlist</span>
     </button>
     <button class="nav-tab" data-tab="pending" onclick="switchTab('pending')" id="pending-tab" style="position:relative;">
-      <span class="nav-icon">â</span>
+      <span class="nav-icon">&#9873;</span>
       <span class="nav-label">Pending</span>
       <span class="nav-badge" id="pending-badge" style="display:none;"></span>
     </button>
@@ -586,7 +586,7 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
       <div class="pin-key" onclick="pinKey('9')">9</div>
       <div class="pin-key cancel-key action" onclick="pinCancel()">cancel</div>
       <div class="pin-key" onclick="pinKey('0')">0</div>
-      <div class="pin-key action" onclick="pinBackspace()">â«</div>
+      <div class="pin-key action" onclick="pinBackspace()">&#9003;</div>
     </div>
     <div class="pin-error" id="pin-error"></div>
   </div>
@@ -604,7 +604,7 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 </div><!-- /app -->
 
 <script>
-// ââ CONFIG ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// \u2500\u2500 CONFIG \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 const SUPABASE_URL = 'https://nyziklifkidpmgfzeoyz.supabase.co';
 const ANON_KEY     = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im55emlrbGlma2lkcG1nZnplb3l6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyNTA0NDUsImV4cCI6MjA5MDgyNjQ0NX0.Glnbtx_Y0MHxfDgwEoL_nmJOM7ujZS20PYlfDa7q-VM';
 const SERVICE_KEY  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im55emlrbGlma2lkcG1nZnplb3l6Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NTI1MDQ0NSwiZXhwIjoyMDkwODI2NDQ1fQ.xt-pnAvgEOLlq5fThYgj0A7FSRUjE8x3jR_Z8-I_BL8';
@@ -612,8 +612,8 @@ const PIN_HASH     = '';
 
 const CORRECT_PIN = '1212';
 
-// ââ DATA âââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-// Seed data from CSV â will be replaced by Supabase fetch once configured
+// \u2500\u2500 DATA \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+// Seed data from CSV \u2014 will be replaced by Supabase fetch once configured
 const SEED = [
   {id:'1',artist:'Barry White',title:"Can't Get Enough",label:'20th Century Records',format:'LP',year:1974,frank_rating:5,discogs_rating:5,genres:['Soul'],styles:['Soul'],catalog_number:'GX 01-723',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:8359425,discogs_url:'https://www.discogs.com/release/8359425'},
   {id:'2',artist:'Joan Armatrading',title:'Me Myself I',label:'A&M Records',format:'LP',year:1980,frank_rating:0,discogs_rating:0,genres:['Rock'],styles:['Art Rock'],catalog_number:'SP-4809',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-04',import_confirmed:true,discogs_release_id:12755704,discogs_url:'https://www.discogs.com/release/12755704'},
@@ -646,12 +646,12 @@ const SEED = [
   {id:'29',artist:'Fania All Stars',title:'Latin-Soul-Rock',label:'Fania Records',format:'LP',year:1974,frank_rating:0,discogs_rating:0,genres:['Latin'],styles:['Salsa'],catalog_number:'LPS88328',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-04',import_confirmed:true,discogs_release_id:15467405,discogs_url:'https://www.discogs.com/release/15467405'},
   {id:'30',artist:'The Cure',title:'Disintegration',label:'Fiction Records',format:'2xLP',year:1989,frank_rating:0,discogs_rating:0,genres:['Rock'],styles:['Post Punk','Alternative Rock'],catalog_number:'532 456-3',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:13247155,discogs_url:'https://www.discogs.com/release/13247155'},
   {id:'31',artist:'John Lennon & Yoko Ono',title:'Double Fantasy',label:'Geffen Records',format:'LP',year:1980,frank_rating:0,discogs_rating:0,genres:['Rock'],styles:['Classic Rock'],catalog_number:'GHS 2001',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:2540883,discogs_url:'https://www.discogs.com/release/2540883'},
-  {id:'32',artist:'Stan Getz & Luiz BonfÃ¡',title:'Jazz Samba Encore!',label:'Verve',format:'LP',year:1963,frank_rating:0,discogs_rating:0,genres:['Jazz'],styles:['Bossa Nova','Latin Jazz'],catalog_number:'GB012LP',media_condition:'Mint',sleeve_condition:'Mint',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2022-09-21',import_confirmed:true,discogs_release_id:11495916,discogs_url:'https://www.discogs.com/release/11495916'},
+  {id:'32',artist:'Stan Getz & Luiz Bonf\u00e1',title:'Jazz Samba Encore!',label:'Verve',format:'LP',year:1963,frank_rating:0,discogs_rating:0,genres:['Jazz'],styles:['Bossa Nova','Latin Jazz'],catalog_number:'GB012LP',media_condition:'Mint',sleeve_condition:'Mint',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2022-09-21',import_confirmed:true,discogs_release_id:11495916,discogs_url:'https://www.discogs.com/release/11495916'},
   {id:'33',artist:'Kate Bush',title:'The Kick Inside',label:'Harvest',format:'LP',year:1978,frank_rating:0,discogs_rating:0,genres:['Rock'],styles:['Art Rock'],catalog_number:'SW-11761',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:637261,discogs_url:'https://www.discogs.com/release/637261'},
   {id:'34',artist:'John Coltrane',title:'A Love Supreme',label:'Impulse!',format:'LP',year:1965,frank_rating:5,discogs_rating:0,genres:['Jazz'],styles:['Hard Bop','Spiritual Jazz'],catalog_number:'GR-155',media_condition:'Mint',sleeve_condition:'Mint',play_count:0,tags:['desert island','jazz'],notes:'',collection_folder:'Uncategorized',date_added:'2022-09-21',import_confirmed:true,discogs_release_id:594243,discogs_url:'https://www.discogs.com/release/594243'},
   {id:'35',artist:'The John Coltrane Quartet',title:'Crescent',label:'Impulse!',format:'LP',year:1964,frank_rating:0,discogs_rating:0,genres:['Jazz'],styles:['Hard Bop','Post Bop'],catalog_number:'IMP-200',media_condition:'Mint',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2022-09-21',import_confirmed:true,discogs_release_id:14457420,discogs_url:'https://www.discogs.com/release/14457420'},
   {id:'36',artist:'Lana Del Rey',title:'Born To Die',label:'Interscope Records',format:'LP',year:2012,frank_rating:5,discogs_rating:5,genres:['Pop'],styles:['Indie Pop'],catalog_number:'B0016425-01',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:3433715,discogs_url:'https://www.discogs.com/release/3433715'},
-  {id:'37',artist:'Bob Marley & The Wailers',title:'Legend â The Best Of Bob Marley And The Wailers',label:'Island Records',format:'LP',year:1984,frank_rating:0,discogs_rating:0,genres:['Reggae'],styles:['Reggae'],catalog_number:'BMW 1',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:6353904,discogs_url:'https://www.discogs.com/release/6353904'},
+  {id:'37',artist:'Bob Marley & The Wailers',title:'Legend \u2014 The Best Of Bob Marley And The Wailers',label:'Island Records',format:'LP',year:1984,frank_rating:0,discogs_rating:0,genres:['Reggae'],styles:['Reggae'],catalog_number:'BMW 1',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:6353904,discogs_url:'https://www.discogs.com/release/6353904'},
   {id:'38',artist:'Amy Winehouse',title:'Lioness: Hidden Treasures',label:'Island Records',format:'2xLP',year:2011,frank_rating:0,discogs_rating:0,genres:['Soul'],styles:['Soul','R&B'],catalog_number:'279 060 3',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:25786045,discogs_url:'https://www.discogs.com/release/25786045'},
   {id:'39',artist:'Grace Jones',title:'Island Life',label:'Island Records',format:'LP',year:1985,frank_rating:4,discogs_rating:4,genres:['Electronic'],styles:['Synth Pop','Disco'],catalog_number:'7 90491-1',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:5041934,discogs_url:'https://www.discogs.com/release/5041934'},
   {id:'40',artist:'Michael Jackson',title:'Thriller 25',label:'Columbia',format:'2xLP',year:2008,frank_rating:0,discogs_rating:0,genres:['Pop'],styles:['Pop','Funk'],catalog_number:'88697 23341 7',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:1245604,discogs_url:'https://www.discogs.com/release/1245604'},
@@ -659,7 +659,7 @@ const SEED = [
   {id:'42',artist:'Astrud Gilberto',title:'The Shadow Of Your Smile',label:'Verve',format:'2xLP',year:2012,frank_rating:5,discogs_rating:5,genres:['Jazz'],styles:['Bossa Nova','Latin Jazz'],catalog_number:'ORG 115',media_condition:'Mint',sleeve_condition:'Mint',play_count:0,tags:['desert island'],notes:'',collection_folder:'Uncategorized',date_added:'2022-09-21',import_confirmed:true,discogs_release_id:5114236,discogs_url:'https://www.discogs.com/release/5114236'},
   {id:'43',artist:'Pink Floyd',title:'The Dark Side Of The Moon',label:'Pink Floyd Records',format:'LP',year:1973,frank_rating:0,discogs_rating:0,genres:['Rock'],styles:['Progressive Rock','Psychedelic Rock'],catalog_number:'PFRLP8',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:9296607,discogs_url:'https://www.discogs.com/release/9296607'},
   {id:'44',artist:'ABBA',title:'Gold (Greatest Hits)',label:'Polar',format:'2xLP',year:1992,frank_rating:0,discogs_rating:0,genres:['Pop'],styles:['Pop','Disco'],catalog_number:'5351106',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:10531798,discogs_url:'https://www.discogs.com/release/10531798'},
-  {id:'45',artist:'Donna Summer',title:'On The Radio â Greatest Hits Volumes I & II',label:'Casablanca',format:'2xLP',year:1979,frank_rating:0,discogs_rating:0,genres:['Electronic'],styles:['Disco'],catalog_number:'6685 049',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:330408,discogs_url:'https://www.discogs.com/release/330408'},
+  {id:'45',artist:'Donna Summer',title:'On The Radio \u2014 Greatest Hits Volumes I & II',label:'Casablanca',format:'2xLP',year:1979,frank_rating:0,discogs_rating:0,genres:['Electronic'],styles:['Disco'],catalog_number:'6685 049',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:330408,discogs_url:'https://www.discogs.com/release/330408'},
   {id:'46',artist:'James Brown',title:'Sex Machine (Live)',label:'Polydor',format:'2xLP',year:1970,frank_rating:0,discogs_rating:0,genres:['Funk'],styles:['Funk','Soul'],catalog_number:'PD-2-9004',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:3271716,discogs_url:'https://www.discogs.com/release/3271716'},
   {id:'47',artist:'Gloria Gaynor',title:'Love Tracks',label:'Polydor',format:'LP',year:1978,frank_rating:0,discogs_rating:0,genres:['Electronic'],styles:['Disco','Soul'],catalog_number:'PD-1-6184',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:4043938,discogs_url:'https://www.discogs.com/release/4043938'},
   {id:'48',artist:'Eric Clapton',title:'Slowhand',label:'Polydor',format:'LP',year:1977,frank_rating:4,discogs_rating:4,genres:['Rock'],styles:['Classic Rock','Blues Rock'],catalog_number:'0600753407233',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-04',import_confirmed:true,discogs_release_id:22396435,discogs_url:'https://www.discogs.com/release/22396435'},
@@ -668,8 +668,8 @@ const SEED = [
   {id:'51',artist:'Talking Heads',title:'Speaking In Tongues',label:'Sire',format:'LP',year:1983,frank_rating:0,discogs_rating:0,genres:['Rock'],styles:['New Wave'],catalog_number:'92-3883-1',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:1379041,discogs_url:'https://www.discogs.com/release/1379041'},
   {id:'52',artist:'Stevie Wonder',title:'Songs In The Key Of Life',label:'Motown',format:'2xLP',year:1976,frank_rating:0,discogs_rating:0,genres:['Soul'],styles:['Soul','Funk','R&B'],catalog_number:'3C 164-98261',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:734161,discogs_url:'https://www.discogs.com/release/734161'},
   {id:'53',artist:'Stevie Wonder',title:'Innervisions',label:'Tamla',format:'LP',year:1973,frank_rating:0,discogs_rating:0,genres:['Soul'],styles:['Soul','R&B','Funk'],catalog_number:'T 326L',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:13286331,discogs_url:'https://www.discogs.com/release/13286331'},
-  {id:'54',artist:'Inti Illimani',title:'Viva Chile!',label:'Movieplay',format:'LP',year:1977,frank_rating:0,discogs_rating:0,genres:['Latin'],styles:['Andean','Nueva CanciÃ³n'],catalog_number:'17.1180/6',media_condition:'',sleeve_condition:'',play_count:0,tags:['Chile'],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-19',import_confirmed:true,discogs_release_id:5657979,discogs_url:'https://www.discogs.com/release/5657979'},
-  {id:'55',artist:'QuilapayÃºn',title:'Santa Maria De Iquique â Cantata Popular',label:'Movieplay',format:'LP',year:1975,frank_rating:0,discogs_rating:0,genres:['Latin'],styles:['Nueva CanciÃ³n'],catalog_number:'S-32.735',media_condition:'',sleeve_condition:'',play_count:0,tags:['Chile'],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-19',import_confirmed:true,discogs_release_id:10755270,discogs_url:'https://www.discogs.com/release/10755270'},
+  {id:'54',artist:'Inti Illimani',title:'Viva Chile!',label:'Movieplay',format:'LP',year:1977,frank_rating:0,discogs_rating:0,genres:['Latin'],styles:['Andean','Nueva Canci\u00f3n'],catalog_number:'17.1180/6',media_condition:'',sleeve_condition:'',play_count:0,tags:['Chile'],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-19',import_confirmed:true,discogs_release_id:5657979,discogs_url:'https://www.discogs.com/release/5657979'},
+  {id:'55',artist:'Quilapay\u00fan',title:'Santa Maria De Iquique \u2014 Cantata Popular',label:'Movieplay',format:'LP',year:1975,frank_rating:0,discogs_rating:0,genres:['Latin'],styles:['Nueva Canci\u00f3n'],catalog_number:'S-32.735',media_condition:'',sleeve_condition:'',play_count:0,tags:['Chile'],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-19',import_confirmed:true,discogs_release_id:10755270,discogs_url:'https://www.discogs.com/release/10755270'},
   {id:'56',artist:'Buena Vista Social Club',title:'Buena Vista Social Club At Carnegie Hall',label:'Nonesuch',format:'2xLP',year:2008,frank_rating:0,discogs_rating:0,genres:['Latin'],styles:['Latin Jazz','Salsa'],catalog_number:'514415-1',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:1781350,discogs_url:'https://www.discogs.com/release/1781350'},
   {id:'57',artist:'Miles Davis',title:'Sketches Of Spain',label:'Music On Vinyl',format:'LP',year:1960,frank_rating:0,discogs_rating:0,genres:['Jazz'],styles:['Cool Jazz'],catalog_number:'MOVLP029',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-09',import_confirmed:true,discogs_release_id:2195526,discogs_url:'https://www.discogs.com/release/2195526'},
   {id:'58',artist:'Taylor Swift',title:'1989',label:'Big Machine Records',format:'2xLP',year:2014,frank_rating:0,discogs_rating:0,genres:['Pop'],styles:['Pop','Synth Pop'],catalog_number:'BMRBD0500E',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Estela',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:27141000,discogs_url:'https://www.discogs.com/release/27141000'},
@@ -686,18 +686,18 @@ const SEED = [
   {id:'69',artist:'Bob Marley & The Wailers',title:'Legend (The Best Of Bob Marley)',label:'Tuff Gong',format:'LP',year:2023,frank_rating:0,discogs_rating:0,genres:['Reggae'],styles:['Reggae'],catalog_number:'B0031911-01',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2025-02-09',import_confirmed:false,discogs_release_id:26526554,discogs_url:'https://www.discogs.com/release/26526554'},
   {id:'70',artist:'Cyndi Lauper',title:'True Colors',label:'Music On Vinyl',format:'LP',year:2021,frank_rating:0,discogs_rating:0,genres:['Pop'],styles:['Synth Pop','Pop'],catalog_number:'MOVLP2677',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2025-02-09',import_confirmed:false,discogs_release_id:17020854,discogs_url:'https://www.discogs.com/release/17020854'},
   {id:'71',artist:'Omara Portuondo',title:'Omara Portuondo',label:'World Circuit',format:'LP',year:2019,frank_rating:0,discogs_rating:0,genres:['Latin'],styles:['Latin Jazz'],catalog_number:'WCV059',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-11',import_confirmed:true,discogs_release_id:14115785,discogs_url:'https://www.discogs.com/release/14115785'},
-  {id:'72',artist:'BjÃ¶rk',title:'Debut',label:'One Little Indian',format:'LP',year:1993,frank_rating:0,discogs_rating:0,genres:['Electronic'],styles:['Trip Hop','Ambient'],catalog_number:'TPLP31',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:4859494,discogs_url:'https://www.discogs.com/release/4859494'},
+  {id:'72',artist:'Bj\u00f6rk',title:'Debut',label:'One Little Indian',format:'LP',year:1993,frank_rating:0,discogs_rating:0,genres:['Electronic'],styles:['Trip Hop','Ambient'],catalog_number:'TPLP31',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:4859494,discogs_url:'https://www.discogs.com/release/4859494'},
   {id:'73',artist:'Lou Reed',title:'Transformer',label:'RCA',format:'LP',year:1972,frank_rating:0,discogs_rating:0,genres:['Rock'],styles:['Glam Rock','Art Rock'],catalog_number:'MOVLP039',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:2425186,discogs_url:'https://www.discogs.com/release/2425186'},
   {id:'74',artist:'Queen',title:'Greatest Hits',label:'Hollywood Records',format:'2xLP',year:1981,frank_rating:0,discogs_rating:0,genres:['Rock'],styles:['Classic Rock'],catalog_number:'D002449501',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:9376862,discogs_url:'https://www.discogs.com/release/9376862'},
   {id:'75',artist:'AC/DC',title:'Back In Black',label:'Columbia',format:'LP',year:1980,frank_rating:0,discogs_rating:0,genres:['Rock'],styles:['Classic Rock','Hard Rock'],catalog_number:'E 80207',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:1517028,discogs_url:'https://www.discogs.com/release/1517028'},
   {id:'76',artist:'Moby',title:'18',label:'Mute',format:'2xLP',year:2002,frank_rating:0,discogs_rating:0,genres:['Electronic'],styles:['Ambient','Trip Hop'],catalog_number:'STUMM 202',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:7662417,discogs_url:'https://www.discogs.com/release/7662417'},
   {id:'77',artist:'Jane\'s Addiction',title:"Ritual de Lo Habitual",label:'Warner Bros. Records',format:'LP',year:1990,frank_rating:0,discogs_rating:0,genres:['Rock'],styles:['Alternative Rock'],catalog_number:'7599-25993-1',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:23466656,discogs_url:'https://www.discogs.com/release/23466656'},
   {id:'78',artist:'Duke Ellington',title:'The 1954 Los Angeles Concert',label:'GNP Crescendo',format:'LP',year:1987,frank_rating:0,discogs_rating:0,genres:['Jazz'],styles:['Bebop','Big Band'],catalog_number:'GNP-9049',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2022-09-21',import_confirmed:true,discogs_release_id:10809113,discogs_url:'https://www.discogs.com/release/10809113'},
-  {id:'79',artist:'Atahualpa Yupanqui',title:'Cancion Para Pablo Neruda',label:'Le Chant Du Monde',format:'LP',year:1974,frank_rating:0,discogs_rating:0,genres:['Latin'],styles:['Andean','Nueva CanciÃ³n'],catalog_number:'LDX 74540',media_condition:'',sleeve_condition:'',play_count:0,tags:['Chile'],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-19',import_confirmed:true,discogs_release_id:11596512,discogs_url:'https://www.discogs.com/release/11596512'},
+  {id:'79',artist:'Atahualpa Yupanqui',title:'Cancion Para Pablo Neruda',label:'Le Chant Du Monde',format:'LP',year:1974,frank_rating:0,discogs_rating:0,genres:['Latin'],styles:['Andean','Nueva Canci\u00f3n'],catalog_number:'LDX 74540',media_condition:'',sleeve_condition:'',play_count:0,tags:['Chile'],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-19',import_confirmed:true,discogs_release_id:11596512,discogs_url:'https://www.discogs.com/release/11596512'},
   {id:'80',artist:'Bob Dylan',title:"The Freewheelin' Bob Dylan",label:'Columbia',format:'LP',year:1963,frank_rating:0,discogs_rating:0,genres:['Folk'],styles:['Folk'],catalog_number:'LP 5115',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:14409853,discogs_url:'https://www.discogs.com/release/14409853'},
 ];
 
-// ââ STATE ââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// \u2500\u2500 STATE \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 let records = [...SEED];
 let wantlist = [
   {id:'w1',artist:'Bill Evans',title:'Waltz For Debby',label:'Riverside',year:1962,genres:['Jazz'],styles:['Cool Jazz'],last_sale_price:65,price_currency:'USD',discogs_url:'https://www.discogs.com/release/1234567',status:'wanted'},
@@ -718,7 +718,7 @@ let nowPlayingId = null;
 let navHistory = ['catalog'];
 let deferredInstall = null;
 
-// ââ SUPABASE FETCH (when keys are set) âââââââââââââââââââââââââââ
+// \u2500\u2500 SUPABASE FETCH (when keys are set) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 async function fetchFromSupabase() {
   if (ANON_KEY === 'REPLACE_WITH_ANON_KEY') return; // not configured yet
   try {
@@ -739,7 +739,7 @@ async function writeToSupabase(id, data) {
   return r.ok;
 }
 
-// ââ HELPERS ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// \u2500\u2500 HELPERS \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 function initials(artist) { return artist.split(' ').slice(0,2).map(w=>w[0]||'').join('').toUpperCase().slice(0,2); }
 
 function fmtClass(fmt) {
@@ -758,21 +758,21 @@ function fmtLabel(fmt) {
 
 function starsHTML(n, size='sm', interactive=false) {
   let h = '';
-  for(let i=1;i<=5;i++) h += `<span class="${interactive?'detail-star':'star-'+size} ${i<=n?'on':'off'}" data-i="${i}">${i<=n?'â':'â'}</span>`;
+  for(let i=1;i<=5;i++) h += `<span class="${interactive?'detail-star':'star-'+size} ${i<=n?'on':'off'}" data-i="${i}">${i<=n?'\u2605':'\u2606'}</span>`;
   return h;
 }
 
 function condLabel(c) {
   const MAP = {'Mint':'M','Near Mint':'NM','Very Good Plus':'VG+','Very Good':'VG','Good Plus':'G+','Good':'G','Fair':'F','Poor':'P'};
-  return MAP[c] || c || 'â';
+  return MAP[c] || c || '\u2014';
 }
 
-// ââ FILTERS ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// \u2500\u2500 FILTERS \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 function filterSort(data) {
   let d = [...data];
   if (searchQ) { const q=searchQ.toLowerCase(); d=d.filter(r=>r.artist.toLowerCase().includes(q)||r.title.toLowerCase().includes(q)||(r.label||'').toLowerCase().includes(q)||(r.genres||[]).join(' ').toLowerCase().includes(q)||(r.styles||[]).join(' ').toLowerCase().includes(q)); }
-  if (activeFilter==='âââââ') d=d.filter(r=>r.frank_rating>=5);
-  else if (activeFilter==='ââââ') d=d.filter(r=>r.frank_rating>=4);
+  if (activeFilter==='\u2605\u2605\u2605\u2605\u2605') d=d.filter(r=>r.frank_rating>=5);
+  else if (activeFilter==='\u2605\u2605\u2605\u2605') d=d.filter(r=>r.frank_rating>=4);
   else if (activeFilter==='LP') d=d.filter(r=>r.format&&r.format.startsWith('LP'));
   else if (activeFilter==='2xLP') d=d.filter(r=>r.format&&(r.format.startsWith('2x')||r.format.startsWith('3x')||r.format.startsWith('4x')));
   else if (activeFilter==='12inch') d=d.filter(r=>r.format&&r.format.includes('12"'));
@@ -790,12 +790,12 @@ function filterSort(data) {
   return d;
 }
 
-// ââ RENDER CATALOG âââââââââââââââââââââââââââââââââââââââââââââââ
+// \u2500\u2500 RENDER CATALOG \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 function renderCatalog() {
   const data = filterSort(records);
   document.getElementById('stats-count').textContent = `${data.length} of ${records.length} records`;
   const grid = document.getElementById('grid');
-  if (!data.length) { grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">â</div><div class="empty-text">No records found</div></div>`; return; }
+  if (!data.length) { grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">\u25c9</div><div class="empty-text">No records found</div></div>`; return; }
   grid.innerHTML = data.map(r => {
     const dot = !r.import_confirmed ? '<div class="pending-dot"></div>' : (r.import_confirmed?'':'');
     return `<div class="card" onclick="openDetail('${r.id}')"><div class="card-inner">
@@ -803,7 +803,7 @@ function renderCatalog() {
       <div class="card-format ${fmtClass(r.format)}">${fmtLabel(r.format)}</div>
       <div class="card-artist">${r.artist}</div>
       <div class="card-title">${r.title}</div>
-      <div class="card-meta"><span style="color:var(--text-muted);font-size:12px;">${r.year||'â'}</span>${r.frank_rating?`<div class="stars-sm">${starsHTML(r.frank_rating,'sm')}</div>`:''}</div>
+      <div class="card-meta"><span style="color:var(--text-muted);font-size:12px;">${r.year||'\u2014'}</span>${r.frank_rating?`<div class="stars-sm">${starsHTML(r.frank_rating,'sm')}</div>`:''}</div>
     </div></div>`;
   }).join('');
   // update pending badge
@@ -812,7 +812,7 @@ function renderCatalog() {
   if (pCount>0) { badge.textContent=pCount; badge.style.display='block'; } else { badge.style.display='none'; }
 }
 
-// ââ OPEN DETAIL ââââââââââââââââââââââââââââââââââââââââââââââââââ
+// \u2500\u2500 OPEN DETAIL \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 function openDetail(id) {
   const r = records.find(x=>x.id===id);
   if (!r) return;
@@ -830,7 +830,7 @@ function renderDetail(r) {
   document.getElementById('detail-disc-label').textContent = initials(r.artist);
   document.getElementById('detail-artist').textContent = r.artist;
   document.getElementById('detail-title').textContent = r.title;
-  document.getElementById('detail-year').textContent = [r.year, r.label].filter(Boolean).join(' Â· ');
+  document.getElementById('detail-year').textContent = [r.year, r.label].filter(Boolean).join(' \u00b7 ');
 
   // Stars
   const starsEl = document.getElementById('detail-stars');
@@ -843,28 +843,28 @@ function renderDetail(r) {
   // Import status
   const isw = document.getElementById('import-status-wrap');
   isw.innerHTML = r.import_confirmed
-    ? '<span class="import-status confirmed">â Import confirmed</span>'
-    : '<span class="import-status pending">â Pending confirmation</span>';
+    ? '<span class="import-status confirmed">\u2713 Import confirmed</span>'
+    : '<span class="import-status pending">\u2691 Pending confirmation</span>';
 
   // Confirm row (only if not confirmed)
   const crw = document.getElementById('confirm-row-wrap');
   crw.innerHTML = !r.import_confirmed ? `
     <div class="confirm-row">
-      <button class="confirm-btn btn-confirm" onclick="confirmImport()">â Confirm import</button>
-      <button class="confirm-btn btn-flag" onclick="flagImport()">â Flag</button>
+      <button class="confirm-btn btn-confirm" onclick="confirmImport()">\u2713 Confirm import</button>
+      <button class="confirm-btn btn-flag" onclick="flagImport()">\u2691 Flag</button>
     </div>` : '';
 
   // Fields
   const fields = [
-    ['Format', r.format||'â'],
-    ['Genre', (r.genres||[]).join(', ')||'â'],
-    ['Style', (r.styles||[]).join(', ')||'â'],
-    ['Catalog', r.catalog_number||'â'],
-    ['Country', r.country||'â'],
-    ['Est. value', r.last_sale_price ? `$${r.last_sale_price} ${r.price_currency||'USD'}` : 'â'],
-    ['Folder', r.collection_folder||'â'],
-    ['Location', r.location||'â'],
-    ['Added', r.date_added ? r.date_added.split('T')[0] : 'â'],
+    ['Format', r.format||'\u2014'],
+    ['Genre', (r.genres||[]).join(', ')||'\u2014'],
+    ['Style', (r.styles||[]).join(', ')||'\u2014'],
+    ['Catalog', r.catalog_number||'\u2014'],
+    ['Country', r.country||'\u2014'],
+    ['Est. value', r.last_sale_price ? `$${r.last_sale_price} ${r.price_currency||'USD'}` : '\u2014'],
+    ['Folder', r.collection_folder||'\u2014'],
+    ['Location', r.location||'\u2014'],
+    ['Added', r.date_added ? r.date_added.split('T')[0] : '\u2014'],
   ];
   document.getElementById('detail-fields').innerHTML = fields.map(([k,v])=>`
     <div class="detail-row"><span class="detail-key">${k}</span><span class="detail-val">${v}</span></div>`).join('');
@@ -875,8 +875,8 @@ function renderDetail(r) {
   document.getElementById('play-minus').onclick = () => { if(!editUnlocked){requestEdit();return;} const n=Math.max(0,(r.play_count||0)-1); setEdit('play_count',n); document.getElementById('play-count-num').textContent=n; r.play_count=n; };
 
   // Condition
-  document.getElementById('cond-media-val').textContent = r.media_condition||'â';
-  document.getElementById('cond-sleeve-val').textContent = r.sleeve_condition||'â';
+  document.getElementById('cond-media-val').textContent = r.media_condition||'\u2014';
+  document.getElementById('cond-sleeve-val').textContent = r.sleeve_condition||'\u2014';
 
   // Tags
   const presets = ['desert island','Chile','gift','signed','jazz','favourite'];
@@ -894,18 +894,18 @@ function renderDetail(r) {
 
   // Discogs link
   const dl = document.getElementById('discogs-link-row');
-  dl.innerHTML = r.discogs_url ? `<a class="discogs-link" href="${r.discogs_url}" target="_blank">â View on Discogs</a>` : '';
+  dl.innerHTML = r.discogs_url ? `<a class="discogs-link" href="${r.discogs_url}" target="_blank">\u2197 View on Discogs</a>` : '';
 }
 
 function renderDetailStars(n) {
   document.getElementById('detail-stars').querySelectorAll('.detail-star').forEach((s,i)=>{
     s.className = `detail-star ${(i+1)<=n?'on':'off'}`;
-    s.textContent = (i+1)<=n?'â':'â';
+    s.textContent = (i+1)<=n?'\u2605':'\u2606';
   });
-  document.getElementById('detail-star-label').textContent = n ? ['','One star','Two stars','Three stars','Four stars','Five stars!'][n] : "Frank's rating â tap to set";
+  document.getElementById('detail-star-label').textContent = n ? ['','One star','Two stars','Three stars','Four stars','Five stars!'][n] : "Frank's rating \u2014 tap to set";
 }
 
-// ââ EDIT & SAVE ââââââââââââââââââââââââââââââââââââââââââââââââââ
+// \u2500\u2500 EDIT & SAVE \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 function setEdit(field, value) {
   if (!currentRecord) return;
   pendingEdits[field] = value;
@@ -966,7 +966,7 @@ function flagImport() {
   if (currentRecord) { setEdit('import_notes', note||'flagged'); }
 }
 
-// ââ PIN ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// \u2500\u2500 PIN \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 function requestEdit() {
   if (editUnlocked) return;
   document.getElementById('pin-overlay').classList.add('visible');
@@ -1007,7 +1007,7 @@ function checkPin() {
     pinBuffer = '';
     const btn = document.getElementById('edit-btn');
     btn.classList.add('unlocked');
-    document.getElementById('edit-icon').textContent = 'â';
+    document.getElementById('edit-icon').textContent = '\u270e';
     document.getElementById('edit-label').textContent = 'Editing';
     if (currentRecord) renderDetail(currentRecord);
   } else {
@@ -1024,12 +1024,12 @@ function toggleEdit() {
   editUnlocked = false;
   const btn = document.getElementById('edit-btn');
   btn.classList.remove('unlocked');
-  document.getElementById('edit-icon').textContent = 'â';
+  document.getElementById('edit-icon').textContent = '\u270e';
   document.getElementById('edit-label').textContent = 'Edit';
   if (hasUnsaved) showUnsaved(); else if (currentRecord) renderDetail(currentRecord);
 }
 
-// ââ NAV ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// \u2500\u2500 NAV \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 function goBack() {
   if (hasUnsaved) { showUnsaved(); return; }
   navHistory.pop();
@@ -1070,17 +1070,17 @@ function showView(v) {
   });
 }
 
-// ââ SEARCH TAB âââââââââââââââââââââââââââââââââââââââââââââââââââ
+// \u2500\u2500 SEARCH TAB \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 function renderStoreResults(q) {
   const el = document.getElementById('store-results');
-  if (!q) { el.innerHTML = '<div class="empty-state"><div class="empty-icon">â</div><div class="empty-text">Search your collection</div></div>'; return; }
+  if (!q) { el.innerHTML = '<div class="empty-state"><div class="empty-icon">\u2315</div><div class="empty-text">Search your collection</div></div>'; return; }
   const ql = q.toLowerCase();
   const owned = records.filter(r=>r.artist.toLowerCase().includes(ql)||r.title.toLowerCase().includes(ql)||(r.genres||[]).join(' ').toLowerCase().includes(ql));
   const wl = wantlist.filter(r=>r.artist.toLowerCase().includes(ql)||r.title.toLowerCase().includes(ql));
-  if (!owned.length && !wl.length) { el.innerHTML = '<div class="empty-state"><div class="empty-icon">â</div><div class="empty-text">Not in your collection</div></div><button class="add-want-btn" onclick="addToWantlistFromSearch(\''+q.replace(/'/g,"\\'")+'\')" >+ Add to wantlist</button>'; return; }
+  if (!owned.length && !wl.length) { el.innerHTML = '<div class="empty-state"><div class="empty-icon">\u25c9</div><div class="empty-text">Not in your collection</div></div><button class="add-want-btn" onclick="addToWantlistFromSearch(\''+q.replace(/'/g,"\\'")+'\')" >+ Add to wantlist</button>'; return; }
   let html = '';
-  if (wl.length) html += wl.map(r=>`<div class="search-result" onclick=""><div class="sr-disc"><div class="sr-disc-label">${initials(r.artist)}</div></div><div class="sr-info"><div class="sr-artist">${r.artist}</div><div class="sr-title">${r.title}</div><div class="sr-meta">${r.label||''} ${r.year||''}</div></div><span class="have-pill have-want">â Want</span></div>`).join('');
-  html += owned.map(r=>`<div class="search-result" onclick="openDetail('${r.id}')"><div class="sr-disc"><div class="sr-disc-label">${initials(r.artist)}</div></div><div class="sr-info"><div class="sr-artist">${r.artist}</div><div class="sr-title">${r.title}</div><div class="sr-meta">${r.label||''} Â· ${r.format||''} ${r.year?'Â· '+r.year:''}</div></div><span class="have-pill have-yes">â Have</span></div>`).join('');
+  if (wl.length) html += wl.map(r=>`<div class="search-result" onclick=""><div class="sr-disc"><div class="sr-disc-label">${initials(r.artist)}</div></div><div class="sr-info"><div class="sr-artist">${r.artist}</div><div class="sr-title">${r.title}</div><div class="sr-meta">${r.label||''} ${r.year||''}</div></div><span class="have-pill have-want">\u2605 Want</span></div>`).join('');
+  html += owned.map(r=>`<div class="search-result" onclick="openDetail('${r.id}')"><div class="sr-disc"><div class="sr-disc-label">${initials(r.artist)}</div></div><div class="sr-info"><div class="sr-artist">${r.artist}</div><div class="sr-title">${r.title}</div><div class="sr-meta">${r.label||''} \u00b7 ${r.format||''} ${r.year?'\u00b7 '+r.year:''}</div></div><span class="have-pill have-yes">\u2713 Have</span></div>`).join('');
   el.innerHTML = html;
 }
 
@@ -1091,7 +1091,7 @@ function addToWantlistFromSearch(q) {
   switchTab('wantlist');
 }
 
-// ââ WANTLIST âââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// \u2500\u2500 WANTLIST \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 function renderWantlist() {
   const el = document.getElementById('wantlist-items');
   const empty = document.getElementById('wantlist-empty');
@@ -1099,11 +1099,11 @@ function renderWantlist() {
   if (!active.length) { el.innerHTML=''; empty.style.display=''; return; }
   empty.style.display='none';
   el.innerHTML = active.map(r=>`<div class="want-item">
-    <div class="want-disc">â</div>
+    <div class="want-disc">\u25c9</div>
     <div class="want-info">
       <div class="want-artist">${r.artist}</div>
-      <div class="want-title">${r.title||'â'}</div>
-      <div class="want-price">${r.last_sale_price?'Est. $'+r.last_sale_price+' '+r.price_currency:'No price data'} ${r.label?'Â· '+r.label:''} ${r.year?'Â· '+r.year:''}</div>
+      <div class="want-title">${r.title||'\u2014'}</div>
+      <div class="want-price">${r.last_sale_price?'Est. $'+r.last_sale_price+' '+r.price_currency:'No price data'} ${r.label?'\u00b7 '+r.label:''} ${r.year?'\u00b7 '+r.year:''}</div>
     </div>
     <button class="got-btn" onclick="gotIt('${r.id}')">Got it</button>
   </div>`).join('');
@@ -1118,7 +1118,7 @@ function gotIt(id) {
   renderWantlist();
 }
 
-// ââ PENDING âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// \u2500\u2500 PENDING \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 function renderPending() {
   const pending = records.filter(r=>!r.import_confirmed);
   const el = document.getElementById('pending-items');
@@ -1128,9 +1128,9 @@ function renderPending() {
   el.innerHTML = pending.map(r=>`<div class="pending-item" onclick="openDetail('${r.id}')">
     <div class="pending-item-artist">${r.artist}</div>
     <div class="pending-item-title">${r.title}</div>
-    <div class="pending-item-meta">${r.label||''} Â· ${r.format||''} ${r.year?'Â· '+r.year:''}</div>
+    <div class="pending-item-meta">${r.label||''} \u00b7 ${r.format||''} ${r.year?'\u00b7 '+r.year:''}</div>
     <div class="pending-action-row">
-      <button class="p-confirm" onclick="event.stopPropagation();quickConfirm('${r.id}')">â Confirm</button>
+      <button class="p-confirm" onclick="event.stopPropagation();quickConfirm('${r.id}')">\u2713 Confirm</button>
       <button class="p-flag" onclick="event.stopPropagation();openDetail('${r.id}')">View</button>
     </div>
   </div>`).join('');
@@ -1142,7 +1142,7 @@ function quickConfirm(id) {
   if (r) { r.import_confirmed=true; writeToSupabase(id,{import_confirmed:true}); renderPending(); renderCatalog(); }
 }
 
-// ââ PLAYING âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// \u2500\u2500 PLAYING \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 function renderPlaying() {
   const conditions = ['Mint','Near Mint','Very Good Plus','Very Good','Good'];
   const optsEl = document.getElementById('np-media-opts');
@@ -1157,7 +1157,7 @@ function showRecordPicker() {
   const matches = records.filter(r=>r.artist.toLowerCase().includes(ql)||r.title.toLowerCase().includes(ql));
   if (!matches.length) { alert('Not found'); return; }
   if (matches.length===1) { setNowPlaying(matches[0].id); return; }
-  const choice = prompt(matches.slice(0,5).map((r,i)=>`${i+1}. ${r.artist} â ${r.title}`).join('\n')+'\n\nEnter number:');
+  const choice = prompt(matches.slice(0,5).map((r,i)=>`${i+1}. ${r.artist} \u2014 ${r.title}`).join('\n')+'\n\nEnter number:');
   const idx = parseInt(choice)-1;
   if (matches[idx]) setNowPlaying(matches[idx].id);
 }
@@ -1166,8 +1166,8 @@ function setNowPlaying(id) {
   nowPlayingId = id;
   document.getElementById('now-playing-card').style.display = 'block';
   updateNowPlayingCard();
-  const r = records.find(x=>x.id===id);
-  document.getElementById('np-selector-text').textContent = r ? `${r.artist} â ${r.title}` : 'Select a recordâ¦';
+  const r = records.find(x==x.id===id);
+  document.getElementById('np-selector-text').textContent = r ? `${r.artist} \u2014 ${r.title}` : 'Select a record\u2026';
 }
 
 function updateNowPlayingCard() {
@@ -1182,7 +1182,7 @@ function updateNowPlayingCard() {
   for(let i=1;i<=5;i++) {
     const s = document.createElement('span');
     s.className = `np-star ${i<=(r.frank_rating||0)?'on':'off'}`;
-    s.textContent = i<=(r.frank_rating||0)?'â':'â';
+    s.textContent = i<=(r.frank_rating||0)?'\u2605':'\u2606';
     s.onclick = () => { if(!editUnlocked){requestEdit();return;} r.frank_rating=i; setEdit('frank_rating',i); writeToSupabase(r.id,{frank_rating:i}); updateNowPlayingCard(); };
     starsEl.appendChild(s);
   }
@@ -1201,14 +1201,14 @@ function setNpCond(c) {
   if (r) { r.media_condition=c; writeToSupabase(r.id,{media_condition:c}); renderPlaying(); }
 }
 
-// ââ UNSAVED SHEET âââââââââââââââââââââââââââââââââââââââââââââââââ
+// \u2500\u2500 UNSAVED SHEET \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 function showUnsaved() { document.getElementById('unsaved-sheet').classList.add('visible'); }
 function hideUnsaved() { document.getElementById('unsaved-sheet').classList.remove('visible'); }
 
-// ââ OFFLINE âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// \u2500\u2500 OFFLINE \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 function showOffline(on) { document.getElementById('offline-banner').classList.toggle('visible', on); }
 
-// ââ INSTALL PWA âââââââââââââââââââââââââââââââââââââââââââââââââââ
+// \u2500\u2500 INSTALL PWA \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 window.addEventListener('beforeinstallprompt', e => {
   e.preventDefault(); deferredInstall = e;
   if (!sessionStorage.getItem('installDismissed')) {
@@ -1226,7 +1226,7 @@ document.getElementById('install-dismiss').onclick = () => {
   document.getElementById('install-banner').classList.remove('visible');
 };
 
-// ââ SEARCH WIRING âââââââââââââââââââââââââââââââââââââââââââââââââ
+// \u2500\u2500 SEARCH WIRING \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 document.getElementById('search-input').addEventListener('input', e => {
   searchQ = e.target.value.trim();
   document.getElementById('search-clear').style.display = searchQ ? 'block' : 'none';
@@ -1254,7 +1254,7 @@ document.querySelectorAll('.sort-btn').forEach(btn => {
     document.querySelectorAll('.sort-btn').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
     const labels = {artist:'Artist',year:'Year',rating:'Rating',added:'Added'};
-    btn.textContent = labels[btn.dataset.sort] + (sortDir===1?' â':' â');
+    btn.textContent = labels[btn.dataset.sort] + (sortDir===1?' \u2191':' \u2193');
     renderCatalog();
   });
 });
@@ -1263,12 +1263,12 @@ document.getElementById('store-search-input').addEventListener('input', e => {
   renderStoreResults(e.target.value.trim());
 });
 
-// ââ OFFLINE DETECTION âââââââââââââââââââââââââââââââââââââââââââââ
+// \u2500\u2500 OFFLINE DETECTION \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 window.addEventListener('online', ()=>showOffline(false));
 window.addEventListener('offline', ()=>showOffline(true));
 if (!navigator.onLine) showOffline(true);
 
-// ââ SWIPE BACK ââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// \u2500\u2500 SWIPE BACK \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 let touchStartX = 0;
 document.getElementById('content').addEventListener('touchstart', e=>{ touchStartX = e.touches[0].clientX; }, {passive:true});
 document.getElementById('content').addEventListener('touchend', e=>{
@@ -1276,7 +1276,7 @@ document.getElementById('content').addEventListener('touchend', e=>{
   if (dx > 80 && touchStartX < 40) goBack();
 }, {passive:true});
 
-// ââ INIT ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// \u2500\u2500 INIT \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 renderCatalog();
 fetchFromSupabase();
 showView('catalog');
