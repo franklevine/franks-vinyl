@@ -120,7 +120,7 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 .card-inner { padding:14px; }
 
 .disc-wrap { width:100%; aspect-ratio:1; position:relative; margin-bottom:10px; border-radius:6px; overflow:hidden; background:#111; }
-.disc { width:80%; height:80%; border-radius:50%; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+.disc { width:80%; height:80%; border-radius:50%; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); overflow:hidden;
   background:radial-gradient(circle at center, #2a2a2a 0%, #1a1a1a 28%, transparent 29%),
     repeating-radial-gradient(circle at center, transparent 0px, transparent 2px, rgba(255,255,255,0.018) 2px, rgba(255,255,255,0.018) 3px); }
 .disc-label { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:29%; height:29%; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; font-size:6px; font-weight:700; color:#0a0a0a; text-transform:uppercase; letter-spacing:0.03em; text-align:center; overflow:hidden; padding:2px; }
@@ -258,8 +258,8 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 .sr-disc { width:44px; height:44px; border-radius:50%; background:radial-gradient(circle at center,#2a2a2a 0%,#1a1a1a 28%,transparent 29%), repeating-radial-gradient(circle at center, transparent 0px, transparent 2px, rgba(255,255,255,0.02) 2px, rgba(255,255,255,0.02) 3px); flex-shrink:0; position:relative; }
 .sr-disc-label { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:13px; height:13px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; font-size:4px; color:#0a0a0a; font-weight:700; text-transform:uppercase; overflow:hidden; }
 .sr-info { flex:1; min-width:0; }
-.sr-artist { font-size:12px; color:var(--accent); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.sr-title { font-family:'Playfair Display',serif; font-size:var(--fs-md); color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-bottom:2px; }
+.sr-artist { font-size:12px; color:var(--accent); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:2px; white-space:nowraw; overflow:hidden; text-overflow:ellipsis; }
+.sr-title { font-family:'Playfair Display',serif; font-size:var(--fs-md); color:var(--text); white-space:nowraw; overflow:hidden; text-overflow:ellipsis; margin-bottom:2px; }
 .sr-meta { font-size:12px; color:var(--text-muted); }
 .have-pill { padding:4px 10px; border-radius:20px; font-size:11px; font-weight:500; flex-shrink:0; }
 .have-yes { background:var(--green-dim); color:var(--green); }
@@ -276,10 +276,10 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 .want-item { display:flex; align-items:center; gap:12px; padding:12px 16px; border-bottom:1px solid var(--border); }
 .want-disc { width:46px; height:46px; border-radius:6px; background:var(--surface2); border:1px solid var(--border); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:18px; color:var(--border2); overflow:hidden; }
 .want-info { flex:1; min-width:0; }
-.want-artist { font-size:12px; color:var(--accent); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.want-title { font-family:'Playfair Display',serif; font-size:var(--fs-md); color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.want-artist { font-size:12px; color:var(--accent); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:2px; white-space:nowraw; overflow:hidden; text-overflow:ellipsis; }
+.want-title { font-family:'Playfair Display',serif; font-size:var(--fs-md); color:var(--text); white-space:nowraw; overflow:hidden; text-overflow:ellipsis; }
 .want-price { font-size:12px; color:var(--text-muted); margin-top:2px; }
-.got-btn { padding:7px 13px; border-radius:20px; border:1px solid var(--green); background:var(--green-dim); color:var(--green); font-family:'DM Mono',monospace; font-size:12px; cursor:pointer; white-space:nowrap; }
+.got-btn { padding:7px 13px; border-radius:20px; border:1px solid var(--green); background:var(--green-dim); color:var(--green); font-family:'DM Mono',monospace; font-size:12px; cursor:pointer; white-space:nowraz; }
 
 /* &#9472;&#9472; PENDING TAB &#9472;&#9472; */
 #pending-view { padding:0 0 80px; display:none; }
@@ -617,7 +617,7 @@ const CORRECT_PIN = '1212';
 const SEED = [
   {id:'1',artist:'Barry White',title:"Can't Get Enough",label:'20th Century Records',format:'LP',year:1974,frank_rating:5,discogs_rating:5,genres:['Soul'],styles:['Soul'],catalog_number:'GX 01-723',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:8359425,discogs_url:'https://www.discogs.com/release/8359425'},
   {id:'2',artist:'Joan Armatrading',title:'Me Myself I',label:'A&M Records',format:'LP',year:1980,frank_rating:0,discogs_rating:0,genres:['Rock'],styles:['Art Rock'],catalog_number:'SP-4809',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-04',import_confirmed:true,discogs_release_id:12755704,discogs_url:'https://www.discogs.com/release/12755704'},
-  {id:'3',artist:'The Rolling Stones',title:'Let It Bleed',label:'ABKCO',format:'LP',year:1969,frank_rating:0,discogs_rating:0,genres:['Rock'],styles:['Classic Rock'],catalog_number:'882 332-1',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:459334,discogs_url:'https://www.discogs.com/release/459334'},
+  {id:'3',artist:'The Rolling Stones',title:'Let It Bleed',label:'ABKCO',format:'LP',year:1969,frank_rating:0,discogs_rating:0,genres:['Rock'],styles:['Classic Rock'],catalog_number:'882 332-1',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'},collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:459334,discogs_url:'https://www.discogs.com/release/459334'},
   {id:'4',artist:'The Beatles',title:'Abbey Road',label:'Apple Records',format:'LP',year:1969,frank_rating:0,discogs_rating:0,genres:['Rock'],styles:['Classic Rock'],catalog_number:'34/44-6010',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:3975130,discogs_url:'https://www.discogs.com/release/3975130'},
   {id:'5',artist:'John Lennon',title:'Imagine',label:'Apple Records',format:'LP',year:1971,frank_rating:0,discogs_rating:0,genres:['Rock'],styles:['Classic Rock'],catalog_number:'SW 3379',media_condition:'Mint',sleeve_condition:'Near Mint',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2022-09-21',import_confirmed:true,discogs_release_id:1355970,discogs_url:'https://www.discogs.com/release/1355970'},
   {id:'6',artist:'The Beatles',title:"Sgt. Pepper's Lonely Hearts Club Band",label:'Parlophone',format:'LP',year:1967,frank_rating:0,discogs_rating:0,genres:['Rock'],styles:['Classic Rock','Psychedelic Rock'],catalog_number:'PCS 7027',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:4078258,discogs_url:'https://www.discogs.com/release/4078258'},
@@ -627,7 +627,7 @@ const SEED = [
   {id:'10',artist:'Nick Cave',title:'Idiot Prayer (Nick Cave Alone At Alexandra Palace)',label:'Bad Seed Ltd.',format:'2xLP',year:2020,frank_rating:0,discogs_rating:0,genres:['Rock'],styles:['Alternative Rock'],catalog_number:'BS019LP',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:16228065,discogs_url:'https://www.discogs.com/release/16228065'},
   {id:'11',artist:'Manu Chao',title:'Clandestino',label:'Because Music',format:'2xLP',year:1998,frank_rating:0,discogs_rating:0,genres:['Latin'],styles:['Latin'],catalog_number:'BEC5161605',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-11',import_confirmed:true,discogs_release_id:11136484,discogs_url:'https://www.discogs.com/release/11136484'},
   {id:'12',artist:'Various Artists',title:'The Best Of Blue Note',label:'Blue Note',format:'2xLP',year:1984,frank_rating:0,discogs_rating:0,genres:['Jazz'],styles:['Hard Bop','Cool Jazz'],catalog_number:'BST2 84429',media_condition:'Mint',sleeve_condition:'Mint',play_count:0,tags:['jazz','classic'],notes:'',collection_folder:'Uncategorized',date_added:'2022-09-21',import_confirmed:true,discogs_release_id:14683275,discogs_url:'https://www.discogs.com/release/14683275'},
-  {id:'13',artist:'Ike Quebec',title:'Heavy Soul',label:'Blue Note',format:'LP',year:1962,frank_rating:0,discogs_rating:0,genres:['Jazz'],styles:['Hard Bop','Soul Jazz'],catalog_number:'BST 84093',media_condition:'Mint',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2022-09-21',import_confirmed:true,discogs_release_id:13022350,discogs_url:'https://www.discogs.com/release/13022350'},
+  {id:'13',artist:'Ike Quebec',title:'Heavy Soul',label:'Blue Note',format:'LP',year:1962,frank_rating:0,discogs_rating:0,genres:['Jazz'],styles:['Hard Bop','Soul Jazz'],catalog_number:'BST 04093',media_condition:'Mint',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2022-09-21',import_confirmed:true,discogs_release_id:13022350,discogs_url:'https://www.discogs.com/release/13022350'},
   {id:'14',artist:'Thelonious Monk',title:'The Classic Quartet',label:'Candid',format:'LP',year:2023,frank_rating:0,discogs_rating:0,genres:['Jazz'],styles:['Hard Bop','Bebop'],catalog_number:'CLP 35511',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-19',import_confirmed:false,discogs_release_id:27345786,discogs_url:'https://www.discogs.com/release/27345786'},
   {id:'15',artist:'Miles Davis',title:'Kind Of Blue',label:'Columbia',format:'LP',year:1959,frank_rating:0,discogs_rating:0,genres:['Jazz'],styles:['Cool Jazz','Modal'],catalog_number:'CJ 40579',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-09',import_confirmed:true,discogs_release_id:1250902,discogs_url:'https://www.discogs.com/release/1250902'},
   {id:'16',artist:'Miles Davis',title:"Cookin' At The Plugged Nickel",label:'Columbia',format:'LP',year:1987,frank_rating:0,discogs_rating:0,genres:['Jazz'],styles:['Hard Bop','Post Bop'],catalog_number:'CJ 40645',media_condition:'Mint',sleeve_condition:'Near Mint',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2022-09-21',import_confirmed:true,discogs_release_id:371559,discogs_url:'https://www.discogs.com/release/371559'},
@@ -653,8 +653,8 @@ const SEED = [
   {id:'36',artist:'Lana Del Rey',title:'Born To Die',label:'Interscope Records',format:'LP',year:2012,frank_rating:5,discogs_rating:5,genres:['Pop'],styles:['Indie Pop'],catalog_number:'B0016425-01',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:3433715,discogs_url:'https://www.discogs.com/release/3433715'},
   {id:'37',artist:'Bob Marley & The Wailers',title:'Legend \u2014 The Best Of Bob Marley And The Wailers',label:'Island Records',format:'LP',year:1984,frank_rating:0,discogs_rating:0,genres:['Reggae'],styles:['Reggae'],catalog_number:'BMW 1',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:6353904,discogs_url:'https://www.discogs.com/release/6353904'},
   {id:'38',artist:'Amy Winehouse',title:'Lioness: Hidden Treasures',label:'Island Records',format:'2xLP',year:2011,frank_rating:0,discogs_rating:0,genres:['Soul'],styles:['Soul','R&B'],catalog_number:'279 060 3',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:25786045,discogs_url:'https://www.discogs.com/release/25786045'},
-  {id:'39',artist:'Grace Jones',title:'Island Life',label:'Island Records',format:'LP',year:1985,frank_rating:4,discogs_rating:4,genres:['Electronic'],styles:['Synth Pop','Disco'],catalog_number:'7 90491-1',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:5041934,discogs_url:'https://www.discogs.com/release/5041934'},
-  {id:'40',artist:'Michael Jackson',title:'Thriller 25',label:'Columbia',format:'2xLP',year:2008,frank_rating:0,discogs_rating:0,genres:['Pop'],styles:['Pop','Funk'],catalog_number:'88697 23341 7',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:1245604,discogs_url:'https://www.discogs.com/release/1245604'},
+  {id:'39',artist:'Grace Jones',title:'Island Life',label:'Island Records',format:'LP',year:1985,frank_rating:4,discogs_rating:4,genres:['Electronic'],styles:['Synth Pop','Disco'],catalog_number:'7 90491-1',media_condition:'',sleeve_condition:%�,play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:5041934,discogs_url:'https://www.discogs.com/release/5041934'},
+  {id:'40',artist:'Michael Jackson',title:'Thriller 25',label:'Columbia',format:'2xLP',year:2008,frank_rating:0,discogs_rating:0,genres:['Pop'],styles:['Pop','Funk'],catalog_number:'88697 23341 7',media_condition:'',sleeve_condition:%�,play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:1245604,discogs_url:'https://www.discogs.com/release/1245604'},
   {id:'41',artist:'Sixto Rodriguez',title:'Searching For Sugar Man',label:'Light In The Attic',format:'2xLP',year:2012,frank_rating:0,discogs_rating:0,genres:['Folk'],styles:['Folk Rock'],catalog_number:'LITA 089',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2025-02-09',import_confirmed:false,discogs_release_id:8610479,discogs_url:'https://www.discogs.com/release/8610479'},
   {id:'42',artist:'Astrud Gilberto',title:'The Shadow Of Your Smile',label:'Verve',format:'2xLP',year:2012,frank_rating:5,discogs_rating:5,genres:['Jazz'],styles:['Bossa Nova','Latin Jazz'],catalog_number:'ORG 115',media_condition:'Mint',sleeve_condition:'Mint',play_count:0,tags:['desert island'],notes:'',collection_folder:'Uncategorized',date_added:'2022-09-21',import_confirmed:true,discogs_release_id:5114236,discogs_url:'https://www.discogs.com/release/5114236'},
   {id:'43',artist:'Pink Floyd',title:'The Dark Side Of The Moon',label:'Pink Floyd Records',format:'LP',year:1973,frank_rating:0,discogs_rating:0,genres:['Rock'],styles:['Progressive Rock','Psychedelic Rock'],catalog_number:'PFRLP8',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:9296607,discogs_url:'https://www.discogs.com/release/9296607'},
@@ -662,7 +662,7 @@ const SEED = [
   {id:'45',artist:'Donna Summer',title:'On The Radio \u2014 Greatest Hits Volumes I & II',label:'Casablanca',format:'2xLP',year:1979,frank_rating:0,discogs_rating:0,genres:['Electronic'],styles:['Disco'],catalog_number:'6685 049',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:330408,discogs_url:'https://www.discogs.com/release/330408'},
   {id:'46',artist:'James Brown',title:'Sex Machine (Live)',label:'Polydor',format:'2xLP',year:1970,frank_rating:0,discogs_rating:0,genres:['Funk'],styles:['Funk','Soul'],catalog_number:'PD-2-9004',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:3271716,discogs_url:'https://www.discogs.com/release/3271716'},
   {id:'47',artist:'Gloria Gaynor',title:'Love Tracks',label:'Polydor',format:'LP',year:1978,frank_rating:0,discogs_rating:0,genres:['Electronic'],styles:['Disco','Soul'],catalog_number:'PD-1-6184',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:4043938,discogs_url:'https://www.discogs.com/release/4043938'},
-  {id:'48',artist:'Eric Clapton',title:'Slowhand',label:'Polydor',format:'LP',year:1977,frank_rating:4,discogs_rating:4,genres:['Rock'],styles:['Classic Rock','Blues Rock'],catalog_number:'0600753407233',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-04',import_confirmed:true,discogs_release_id:22396435,discogs_url:'https://www.discogs.com/release/22396435'},
+  {id:'48',artist:'Eric Clapton',title:'Slowhand',label:'Polydor',format:'LP',year:1977,frank_rating:4,discogs_rating:4,genres:['Rock'],styles:['Classic Rock','Blues Rock'],catalog_number:'0600753407233',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'},collection_folder:'Uncategorized',date_added:'2023-06-04',import_confirmed:true,discogs_release_id:22396435,discogs_url:'https://www.discogs.com/release/22396435'},
   {id:'49',artist:'Madonna',title:'True Blue',label:'Sire',format:'LP',year:1986,frank_rating:0,discogs_rating:0,genres:['Pop'],styles:['Synth Pop','Pop'],catalog_number:'9 25442-1',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-19',import_confirmed:true,discogs_release_id:7246061,discogs_url:'https://www.discogs.com/release/7246061'},
   {id:'50',artist:'Talking Heads',title:'Remain In Light',label:'Sire',format:'LP',year:1980,frank_rating:0,discogs_rating:0,genres:['Rock'],styles:['New Wave','Post Punk'],catalog_number:'SRK 6095',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:9502380,discogs_url:'https://www.discogs.com/release/9502380'},
   {id:'51',artist:'Talking Heads',title:'Speaking In Tongues',label:'Sire',format:'LP',year:1983,frank_rating:0,discogs_rating:0,genres:['Rock'],styles:['New Wave'],catalog_number:'92-3883-1',media_condition:'',sleeve_condition:'',play_count:0,tags:[],notes:'',collection_folder:'Uncategorized',date_added:'2023-06-03',import_confirmed:true,discogs_release_id:1379041,discogs_url:'https://www.discogs.com/release/1379041'},
@@ -798,8 +798,10 @@ function renderCatalog() {
   if (!data.length) { grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">\u25c9</div><div class="empty-text">No records found</div></div>`; return; }
   grid.innerHTML = data.map(r => {
     const dot = !r.import_confirmed ? '<div class="pending-dot"></div>' : (r.import_confirmed?'':'');
+    const discImg = r.image_url ? `<img class="disc-img" src="${r.image_url}" alt="" loading="lazy" onerror="this.remove()">` : '';
+    const labelHide = r.image_url ? ' style="display:none"' : '';
     return `<div class="card" onclick="openDetail('${r.id}')"><div class="card-inner">
-      <div class="disc-wrap"><div class="disc"><div class="disc-label">${initials(r.artist)}</div></div>${dot}</div>
+      <div class="disc-wrap"><div class="disc">${discImg}<div class="disc-label"${labelHide}>${initials(r.artist)}</div></div>${dot}</div>
       <div class="card-format ${fmtClass(r.format)}">${fmtLabel(r.format)}</div>
       <div class="card-artist">${r.artist}</div>
       <div class="card-title">${r.title}</div>
@@ -824,10 +826,47 @@ function openDetail(id) {
   document.getElementById('topbar-back').classList.add('visible');
   document.getElementById('topbar-title').style.display = 'none';
   renderDetail(r);
+  if (!r.image_url) fetchDiscogsImage(r);
+}
+
+async function fetchDiscogsImage(r) {
+  if (r.image_url || !r.discogs_url) return;
+  const match = r.discogs_url.match(/\/release\/(\d+)/);
+  if (!match) return;
+  try {
+    const resp = await fetch(`https://api.discogs.com/releases/${match[1]}`, {
+      headers: { 'User-Agent': 'FranksVinylPWA/1.0 +https://franklevine.github.io/franks-vinyl/' }
+    });
+    if (!resp.ok) return;
+    const data = await resp.json();
+    const url = (data.images||[]).find(i=>i.type==='primary')?.uri || data.images?.[0]?.uri;
+    if (url) {
+      r.image_url = url;
+      await writeToSupabase(r.id, { image_url: url });
+      if (currentRecord && currentRecord.id === r.id) renderDetail(r);
+      renderCatalog();
+    }
+  } catch(e) {}
 }
 
 function renderDetail(r) {
-  document.getElementById('detail-disc-label').textContent = initials(r.artist);
+  // Album art in detail disc
+  const detailDisc = document.getElementById('detail-disc');
+  detailDisc.querySelectorAll('img').forEach(i => i.remove());
+  const discLabel = document.getElementById('detail-disc-label');
+  discLabel.textContent = initials(r.artist);
+  if (r.image_url) {
+    const img = document.createElement('img');
+    img.className = 'detail-disc-img';
+    img.src = r.image_url;
+    img.alt = '';
+    img.loading = 'lazy';
+    img.onerror = function() { this.remove(); discLabel.style.display = ''; };
+    detailDisc.insertBefore(img, detailDisc.firstChild);
+    discLabel.style.display = 'none';
+  } else {
+    discLabel.style.display = '';
+  }
   document.getElementById('detail-artist').textContent = r.artist;
   document.getElementById('detail-title').textContent = r.title;
   document.getElementById('detail-year').textContent = [r.year, r.label].filter(Boolean).join(' \u00b7 ');
@@ -1166,7 +1205,7 @@ function setNowPlaying(id) {
   nowPlayingId = id;
   document.getElementById('now-playing-card').style.display = 'block';
   updateNowPlayingCard();
-  const r = records.find(x==x.id===id);
+  const r = records.find(x=>x.id===id);
   document.getElementById('np-selector-text').textContent = r ? `${r.artist} \u2014 ${r.title}` : 'Select a record\u2026';
 }
 
