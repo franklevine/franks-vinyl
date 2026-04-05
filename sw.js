@@ -1,5 +1,5 @@
 const CACHE = 'franks-vinyl-v1';
-const ASSETS = ['/', '/index.html'];
+const ASSETS = ['/franks-vinyl/', '/franks-vinyl/index.html'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
