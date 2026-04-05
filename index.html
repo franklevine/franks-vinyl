@@ -112,8 +112,9 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 #content { flex:1; overflow-y:auto; overflow-x:hidden; -webkit-overflow-scrolling:touch; }
 
 /* &#9472;&#9472; CATALOG GRID &#9472;&#9472; */
-.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--border); }
-@media(min-width:480px){ .grid { grid-template-columns:repeat(3,1fr); } }
+.grid { display:grid; grid-template-columns:1fr; gap:1px; background:var(--border); }
+@media(min-width:400px){ .grid { grid-template-columns:repeat(2,1fr); } }
+@media(min-width:600px){ .grid { grid-template-columns:repeat(3,1fr); } }
 
 .card { background:var(--bg); cursor:pointer; transition:background 0.15s; animation:fadeUp 0.25s ease both; }
 .card:active { background:var(--surface); }
@@ -196,6 +197,9 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 .discogs-link-row { padding:12px 16px; }
 .discogs-link { display:flex; align-items:center; justify-content:center; gap:6px; padding:12px; border-radius:8px; border:1px solid var(--border2); color:var(--blue); font-size:var(--fs-sm); text-decoration:none; }
 .discogs-link:hover { background:var(--blue-dim); }
+.delete-row { padding:12px 16px; }
+.delete-btn { width:100%; padding:13px; border-radius:8px; border:1px solid #c0392b; background:rgba(192,57,43,0.1); color:#c0392b; font-family:'DM Mono',monospace; font-size:var(--fs-sm); cursor:pointer; text-align:center; transition:opacity 0.15s; }
+.delete-btn:active { opacity:0.7; }
 
 /* &#9472;&#9472; SAVE BAR &#9472;&#9472; */
 #save-bar { position:absolute; bottom:64px; left:0; right:0; padding:0 16px 8px; z-index:40; display:none; }
@@ -248,6 +252,12 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 .notes-ta { width:100%; background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:10px 12px; font-family:'DM Mono',monospace; font-size:var(--fs-sm); color:var(--text); resize:none; height:80px; outline:none; }
 .notes-ta:focus { border-color:var(--accent); }
 .notes-ta::placeholder { color:var(--text-muted); }
+.np-picker-wrap { margin-bottom:12px; }
+.np-picker-results { max-height:300px; overflow-y:auto; background:var(--surface); border:1px solid var(--border); border-radius:0 0 8px 8px; border-top:none; }
+.np-picker-results:empty { display:none; }
+.np-picker-result { display:flex; align-items:center; gap:12px; padding:12px 16px; border-bottom:1px solid var(--border); cursor:pointer; }
+.np-picker-result:active { background:var(--surface2); }
+.np-picker-result:last-child { border-bottom:none; }
 
 /* &#9472;&#9472; SEARCH TAB &#9472;&#9472; */
 #search-view { padding:0 0 80px; display:none; }
@@ -280,6 +290,7 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 .want-title { font-family:'Playfair Display',serif; font-size:var(--fs-md); color:var(--text); white-space:nowraw; overflow:hidden; text-overflow:ellipsis; }
 .want-price { font-size:12px; color:var(--text-muted); margin-top:2px; }
 .got-btn { padding:7px 13px; border-radius:20px; border:1px solid var(--green); background:var(--green-dim); color:var(--green); font-family:'DM Mono',monospace; font-size:12px; cursor:pointer; white-space:nowraz; }
+.wantlist-search-bar { padding:12px 16px 0; }
 
 /* &#9472;&#9472; PENDING TAB &#9472;&#9472; */
 #pending-view { padding:0 0 80px; display:none; }
@@ -465,13 +476,21 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
       </div>
 
       <div class="discogs-link-row" id="discogs-link-row"></div>
+      <div class="delete-row" id="delete-row" style="display:none;">
+        <button class="delete-btn" onclick="deleteRecord()">Delete record</button>
+      </div>
     </div>
 
     <!-- PLAYING -->
     <div id="playing-view">
-      <div class="np-selector" onclick="showRecordPicker()">
-        <div class="np-selector-label">Now playing</div>
-        <div class="np-selector-title" id="np-selector-text">Select a record&#8230; <span style="color:var(--text-muted);">&#8595;</span></div>
+      <div class="np-picker-wrap" style="padding:12px 16px;">
+        <div class="np-selector-label" style="margin-bottom:8px;">Now playing</div>
+        <div class="search-wrap">
+          <span class="search-icon">&#8981;</span>
+          <input type="search" id="np-search-input" class="search-input" placeholder="Search your collection&#8230;" autocomplete="off" autocorrect="off" spellcheck="false">
+        </div>
+        <div class="np-picker-results" id="np-picker-results"></div>
+        <div id="np-selected-label" style="font-family:'Playfair Display',serif;font-size:var(--fs-md);color:var(--text);padding:8px 0;display:none;"></div>
       </div>
       <div id="now-playing-card" style="display:none;">
         <div class="now-playing-card">
@@ -514,6 +533,12 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 
     <!-- WANTLIST -->
     <div id="wantlist-view">
+      <div class="wantlist-search-bar">
+        <div class="search-wrap">
+          <span class="search-icon">&#8981;</span>
+          <input type="search" id="wantlist-search-input" class="search-input" placeholder="Search wantlist&#8230;" autocomplete="off" autocorrect="off" spellcheck="false">
+        </div>
+      </div>
       <div class="claude-hint">
         <div class="claude-hint-icon">&#10022;</div>
         <div class="claude-hint-text">Text or send Claude a photo of a record you want &#8594; it appears here automatically</div>
@@ -623,6 +648,7 @@ let activeFilter = 'all';
 let activeSort = 'artist';
 let sortDir = 1;
 let searchQ = '';
+let wantlistSearchQ = '';
 let currentRecord = null;
 let editUnlocked = false;
 let pinBuffer = '';
@@ -688,6 +714,35 @@ async function fetchWantlistFromSupabase() {
       if (activeTab === 'wantlist') renderWantlist();
     }
   } catch(e) { console.warn('Wantlist fetch failed', e); }
+}
+
+async function insertToSupabase(table, data) {
+  try {
+    const r = await fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
+      method: 'POST',
+      headers: { apikey: SERVICE_KEY, Authorization: `Bearer ${SERVICE_KEY}`, 'Content-Type': 'application/json', Prefer: 'return=representation' },
+      body: JSON.stringify(data)
+    });
+    if (r.ok) return (await r.json())[0];
+  } catch(e) { console.error('Insert failed', e); }
+  return null;
+}
+
+async function deleteFromSupabase(table, id) {
+  try {
+    const r = await fetch(`${SUPABASE_URL}/rest/v1/${table}?id=eq.${id}`, {
+      method: 'DELETE',
+      headers: { apikey: SERVICE_KEY, Authorization: `Bearer ${SERVICE_KEY}`, Prefer: 'return=minimal' }
+    });
+    return r.ok;
+  } catch(e) { console.error('Delete failed', e); return false; }
+}
+
+function generateUUID() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+    const r = Math.random()*16|0;
+    return (c==='x'?r:(r&0x3|0x8)).toString(16);
+  });
 }
 
 // \u2500\u2500 HELPERS \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
@@ -888,6 +943,9 @@ function renderDetail(r) {
   // Discogs link
   const dl = document.getElementById('discogs-link-row');
   dl.innerHTML = r.discogs_url ? `<a class="discogs-link" href="${r.discogs_url}" target="_blank">\u2197 View on Discogs</a>` : '';
+
+  // Delete button
+  document.getElementById('delete-row').style.display = editUnlocked ? '' : 'none';
 }
 
 function renderDetailStars(n) {
@@ -957,6 +1015,21 @@ function flagImport() {
   if (!editUnlocked) { requestEdit(); return; }
   const note = prompt('Correction note (optional):');
   if (currentRecord) { setEdit('import_notes', note||'flagged'); }
+}
+
+async function deleteRecord() {
+  if (!editUnlocked) { requestEdit(); return; }
+  if (!currentRecord) return;
+  if (!confirm('Delete ' + currentRecord.artist + ' \u2014 ' + currentRecord.title + '?')) return;
+  const ok = await deleteFromSupabase('vinyl_records', currentRecord.id);
+  if (!ok) { alert('Delete failed'); return; }
+  records = records.filter(r => r.id !== currentRecord.id);
+  currentRecord = null;
+  hasUnsaved = false;
+  pendingEdits = {};
+  document.getElementById('save-bar').className = '';
+  goBack();
+  renderCatalog();
 }
 
 // \u2500\u2500 PIN \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
@@ -1088,7 +1161,11 @@ function addToWantlistFromSearch(q) {
 function renderWantlist() {
   const el = document.getElementById('wantlist-items');
   const empty = document.getElementById('wantlist-empty');
-  const active = wantlist.filter(r=>r.status==='wanted');
+  let active = wantlist.filter(r=>r.status==='wanted');
+  if (wantlistSearchQ) {
+    const q = wantlistSearchQ.toLowerCase();
+    active = active.filter(r => r.artist.toLowerCase().includes(q) || (r.title||'').toLowerCase().includes(q));
+  }
   if (!active.length) { el.innerHTML=''; empty.style.display=''; return; }
   empty.style.display='none';
   el.innerHTML = active.map(r=>`<div class="want-item">
@@ -1102,13 +1179,38 @@ function renderWantlist() {
   </div>`).join('');
 }
 
-function gotIt(id) {
+async function gotIt(id) {
   if (!editUnlocked) { requestEdit(); return; }
+  const item = wantlist.find(w => w.id === id);
+  if (!item) return;
   const price = prompt('What did you pay? (leave blank to skip)');
-  const where = prompt('Where did you buy it?');
-  const item = wantlist.find(w=>w.id===id);
-  if (item) { item.status = 'purchased'; }
+  const newId = generateUUID();
+  const newRecord = {
+    id: newId,
+    artist: item.artist || '',
+    title: item.title || '',
+    label: item.label || '',
+    year: item.year || null,
+    genres: item.genres || [],
+    styles: item.styles || [],
+    discogs_url: item.discogs_url || '',
+    date_added: new Date().toISOString().split('T')[0],
+    import_confirmed: false,
+    frank_rating: 0,
+    play_count: 0,
+    notes: price ? 'Paid: $' + price : '',
+    tags: [],
+    media_condition: '',
+    sleeve_condition: '',
+    format: item.format || '',
+  };
+  const inserted = await insertToSupabase('vinyl_records', newRecord);
+  if (!inserted) { alert('Failed to add to collection'); return; }
+  await deleteFromSupabase('vinyl_wantlist', id);
+  wantlist = wantlist.filter(w => w.id !== id);
+  records.push({ ...newRecord, import_confirmed: false });
   renderWantlist();
+  renderCatalog();
 }
 
 // \u2500\u2500 PENDING \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
@@ -1140,19 +1242,18 @@ function renderPlaying() {
   const conditions = ['Mint','Near Mint','Very Good Plus','Very Good','Good'];
   const optsEl = document.getElementById('np-media-opts');
   if (optsEl) optsEl.innerHTML = conditions.map(c=>`<div class="cond-opt ${nowPlayingId&&records.find(r=>r.id===nowPlayingId)?.media_condition===c?'active':''}" onclick="setNpCond('${c}')">${c}</div>`).join('');
-  if (nowPlayingId) updateNowPlayingCard();
+  if (nowPlayingId) {
+    updateNowPlayingCard();
+    const r = records.find(x=>x.id===nowPlayingId);
+    const label = document.getElementById('np-selected-label');
+    if (r && label) { label.textContent = `${r.artist} \u2014 ${r.title}`; label.style.display = ''; }
+  }
 }
 
-function showRecordPicker() {
-  const q = prompt('Search for a record to mark as playing:');
-  if (!q) return;
-  const ql = q.toLowerCase();
-  const matches = records.filter(r=>r.artist.toLowerCase().includes(ql)||r.title.toLowerCase().includes(ql));
-  if (!matches.length) { alert('Not found'); return; }
-  if (matches.length===1) { setNowPlaying(matches[0].id); return; }
-  const choice = prompt(matches.slice(0,5).map((r,i)=>`${i+1}. ${r.artist} \u2014 ${r.title}`).join('\n')+'\n\nEnter number:');
-  const idx = parseInt(choice)-1;
-  if (matches[idx]) setNowPlaying(matches[idx].id);
+function pickNowPlaying(id) {
+  document.getElementById('np-search-input').value = '';
+  document.getElementById('np-picker-results').innerHTML = '';
+  setNowPlaying(id);
 }
 
 function setNowPlaying(id) {
@@ -1160,7 +1261,8 @@ function setNowPlaying(id) {
   document.getElementById('now-playing-card').style.display = 'block';
   updateNowPlayingCard();
   const r = records.find(x=>x.id===id);
-  document.getElementById('np-selector-text').textContent = r ? `${r.artist} \u2014 ${r.title}` : 'Select a record\u2026';
+  const label = document.getElementById('np-selected-label');
+  if (label) { label.textContent = r ? `${r.artist} \u2014 ${r.title}` : ''; label.style.display = r ? '' : 'none'; }
 }
 
 function updateNowPlayingCard() {
@@ -1254,6 +1356,30 @@ document.querySelectorAll('.sort-btn').forEach(btn => {
 
 document.getElementById('store-search-input').addEventListener('input', e => {
   renderStoreResults(e.target.value.trim());
+});
+
+document.getElementById('wantlist-search-input').addEventListener('input', e => {
+  wantlistSearchQ = e.target.value.trim();
+  renderWantlist();
+});
+
+document.getElementById('np-search-input').addEventListener('input', e => {
+  const q = e.target.value.trim();
+  const resultsEl = document.getElementById('np-picker-results');
+  if (!q) { resultsEl.innerHTML = ''; return; }
+  const ql = q.toLowerCase();
+  const matches = records.filter(r => r.artist.toLowerCase().includes(ql) || r.title.toLowerCase().includes(ql)).slice(0, 10);
+  if (!matches.length) {
+    resultsEl.innerHTML = '<div style="padding:14px 16px;color:var(--text-muted);font-size:var(--fs-sm);">No matches</div>';
+    return;
+  }
+  resultsEl.innerHTML = matches.map(r =>
+    `<div class="np-picker-result" onclick="pickNowPlaying('${r.id}')">` +
+    `<div class="sr-disc"><div class="sr-disc-label">${initials(r.artist)}</div></div>` +
+    `<div class="sr-info"><div class="sr-artist">${r.artist}</div>` +
+    `<div class="sr-title">${r.title}</div>` +
+    `<div class="sr-meta">${r.label||''}${r.format?' \u00b7 '+r.format:''}${r.year?' \u00b7 '+r.year:''}</div></div></div>`
+  ).join('');
 });
 
 // \u2500\u2500 OFFLINE DETECTION \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
