@@ -342,6 +342,13 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 @keyframes fadeUp { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
 @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)} 40%{transform:translateX(8px)} 60%{transform:translateX(-5px)} 80%{transform:translateX(5px)} }
 .shake { animation:shake 0.4s ease; }
+
+/* &#9472;&#9472; LIGHTBOX &#9472;&#9472; */
+#lightbox { position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.95); display:none; align-items:center; justify-content:center; touch-action:none; }
+#lightbox.visible { display:flex; }
+#lightbox-close { position:absolute; top:16px; right:16px; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.15); border:none; color:#fff; font-size:22px; cursor:pointer; z-index:201; display:flex; align-items:center; justify-content:center; }
+#lightbox-img { max-width:100%; max-height:100%; object-fit:contain; transition:transform 0.2s ease; transform-origin:center center; cursor:zoom-in; }
+#lightbox-img.zoomed { cursor:zoom-out; }
 </style>
 </head>
 <body>
@@ -626,6 +633,11 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 
 </div><!-- /app -->
 
+<div id="lightbox">
+  <button id="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <img id="lightbox-img" src="">
+</div>
+
 <script>
 // \u2500\u2500 CONFIG \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 const SUPABASE_URL = 'https://nyziklifkidpmgfzeoyz.supabase.co';
@@ -868,8 +880,12 @@ function renderDetail(r) {
     img.onerror = function() { this.remove(); discLabel.style.display = ''; };
     detailDisc.insertBefore(img, detailDisc.firstChild);
     discLabel.style.display = 'none';
+    detailDisc.style.cursor = 'pointer';
+    detailDisc.onclick = () => openLightbox(r.image_url);
   } else {
     discLabel.style.display = '';
+    detailDisc.style.cursor = '';
+    detailDisc.onclick = null;
   }
   document.getElementById('detail-artist').textContent = r.artist;
   document.getElementById('detail-title').textContent = r.title;
@@ -1379,6 +1395,43 @@ document.getElementById('np-search-input').addEventListener('input', e => {
     `<div class="sr-meta">${r.label||''}${r.format?' \u00b7 '+r.format:''}${r.year?' \u00b7 '+r.year:''}</div></div></div>`
   ).join('');
 });
+
+// \u2500\u2500 LIGHTBOX \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+function openLightbox(src) {
+  if (!src) return;
+  const lb = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img');
+  img.src = src;
+  img.style.transform = 'scale(1)';
+  img.classList.remove('zoomed');
+  lb.classList.add('visible');
+  lbScale = 1; lbPanning = false;
+  img.style.transformOrigin = 'center center';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('visible');
+  document.getElementById('lightbox-img').src = '';
+}
+let lbScale = 1, lbLastDist = 0, lbPanning = false, lbStartX = 0, lbStartY = 0, lbOriginX = 50, lbOriginY = 50;
+const lbImg = document.getElementById('lightbox-img');
+lbImg.addEventListener('click', e => {
+  if (lbScale > 1) { lbScale = 1; lbImg.style.transform = 'scale(1)'; lbImg.style.transformOrigin = 'center center'; lbImg.classList.remove('zoomed'); }
+  else { lbScale = 2.5; const rect = lbImg.getBoundingClientRect(); const x = ((e.clientX-rect.left)/rect.width*100); const y = ((e.clientY-rect.top)/rect.height*100); lbImg.style.transformOrigin = x+'% '+y+'%'; lbImg.style.transform = 'scale('+lbScale+')'; lbImg.classList.add('zoomed'); }
+});
+document.getElementById('lightbox').addEventListener('touchmove', e => {
+  if (e.touches.length === 2) {
+    e.preventDefault();
+    const d = Math.hypot(e.touches[0].clientX-e.touches[1].clientX, e.touches[0].clientY-e.touches[1].clientY);
+    if (lbLastDist) { lbScale = Math.min(5, Math.max(1, lbScale * (d/lbLastDist))); lbImg.style.transform = 'scale('+lbScale+')'; lbImg.classList.toggle('zoomed', lbScale > 1); }
+    lbLastDist = d;
+    const mx = (e.touches[0].clientX+e.touches[1].clientX)/2;
+    const my = (e.touches[0].clientY+e.touches[1].clientY)/2;
+    const rect = lbImg.getBoundingClientRect();
+    lbImg.style.transformOrigin = ((mx-rect.left)/rect.width*100)+'% '+((my-rect.top)/rect.height*100)+'%';
+  }
+}, {passive:false});
+document.getElementById('lightbox').addEventListener('touchend', () => { lbLastDist = 0; if (lbScale <= 1.05) { lbScale = 1; lbImg.style.transform = 'scale(1)'; lbImg.style.transformOrigin = 'center center'; lbImg.classList.remove('zoomed'); } });
+document.getElementById('lightbox').addEventListener('click', e => { if (e.target === document.getElementById('lightbox')) closeLightbox(); });
 
 // \u2500\u2500 OFFLINE DETECTION \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 window.addEventListener('online', ()=>showOffline(false));
