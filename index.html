@@ -849,8 +849,11 @@ function renderDetail(r) {
   document.getElementById('cond-media-val').textContent = r.media_condition||'\u2014';
   document.getElementById('cond-sleeve-val').textContent = r.sleeve_condition||'\u2014';
 
-  // Tags
-  const presets = ['desert island','Chile','gift','signed','jazz','favourite'];
+  // Tags — build presets dynamically from all tags in use across the collection
+  const allTags = new Set();
+  records.forEach(x => (x.tags||[]).forEach(t => allTags.add(t)));
+  (r.tags||[]).forEach(t => allTags.add(t)); // include this record's tags too
+  const presets = [...allTags].sort();
   const tagsEl = document.getElementById('detail-tags');
   tagsEl.innerHTML = presets.map(t=>`<div class="tag ${(r.tags||[]).includes(t)?'active':''}" onclick="toggleTag('${t}')">${t}</div>`).join('') +
     `<div class="tag add-tag" onclick="addTag()">+ add</div>`;
