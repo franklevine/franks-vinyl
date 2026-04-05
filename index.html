@@ -112,8 +112,7 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
 #content { flex:1; overflow-y:auto; overflow-x:hidden; -webkit-overflow-scrolling:touch; }
 
 /* &#9472;&#9472; CATALOG GRID &#9472;&#9472; */
-.grid { display:grid; grid-template-columns:1fr; gap:1px; background:var(--border); }
-@media(min-width:400px){ .grid { grid-template-columns:repeat(2,1fr); } }
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--border); max-width:100%; overflow:hidden; }
 @media(min-width:600px){ .grid { grid-template-columns:repeat(3,1fr); } }
 
 .card { background:var(--bg); cursor:pointer; transition:background 0.15s; animation:fadeUp 0.25s ease both; }
