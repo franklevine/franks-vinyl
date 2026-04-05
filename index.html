@@ -616,10 +616,7 @@ const CORRECT_PIN = '1212';
 
 // \u2500\u2500 STATE \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 let records = [];
-let wantlist = [
-  {id:'w1',artist:'Bill Evans',title:'Waltz For Debby',label:'Riverside',year:1962,genres:['Jazz'],styles:['Cool Jazz'],last_sale_price:65,price_currency:'USD',discogs_url:'https://www.discogs.com/release/1234567',status:'wanted'},
-  {id:'w2',artist:'Caetano Veloso',title:'Transa',label:'Philips',year:1972,genres:['Latin'],styles:['Bossa Nova'],last_sale_price:55,price_currency:'USD',discogs_url:'https://www.discogs.com/release/2345678',status:'wanted'},
-];
+let wantlist = [];
 
 let activeTab = 'catalog';
 let activeFilter = 'all';
@@ -669,6 +666,28 @@ async function writeToSupabase(id, data) {
     body: JSON.stringify(data)
   });
   return r.ok;
+}
+
+async function fetchWantlistFromSupabase() {
+  try {
+    const r = await fetch(`${SUPABASE_URL}/rest/v1/vinyl_wantlist?select=*&order=artist.asc&limit=500`, {
+      headers: { apikey: ANON_KEY, Authorization: `Bearer ${ANON_KEY}` }
+    });
+    if (r.ok) {
+      const data = await r.json();
+      wantlist = data.map(rec => ({
+        ...rec,
+        genres: rec.genres || [],
+        styles: rec.styles || [],
+        status: rec.status || 'wanted',
+        last_sale_price: rec.last_sale_price || null,
+        price_currency: rec.price_currency || 'USD',
+        label: rec.label || '',
+        title: rec.title || '',
+      }));
+      if (activeTab === 'wantlist') renderWantlist();
+    }
+  } catch(e) { console.warn('Wantlist fetch failed', e); }
 }
 
 // \u2500\u2500 HELPERS \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
@@ -1253,6 +1272,7 @@ document.getElementById('content').addEventListener('touchend', e=>{
 // \u2500\u2500 INIT \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 showView('catalog');
 fetchFromSupabase();
+fetchWantlistFromSupabase();
 </script>
 
 <!-- SERVICE WORKER REGISTRATION -->
