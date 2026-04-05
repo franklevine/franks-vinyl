@@ -519,6 +519,10 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
           <div class="cond-options" id="np-media-opts"></div>
         </div>
         <div class="quick-section">
+          <div class="quick-section-title">Tags</div>
+          <div class="tags-wrap" id="np-tags"></div>
+        </div>
+        <div class="quick-section">
           <div class="quick-section-title">Notes</div>
           <textarea class="notes-ta" id="np-notes-ta" placeholder="Add a note about this listen&#8230;"></textarea>
         </div>
@@ -1301,6 +1305,13 @@ function updateNowPlayingCard() {
     writeToSupabase(r.id,{play_count:r.play_count});
     document.getElementById('np-play-num').textContent = r.play_count;
   };
+  // Tags
+  const allTags = new Set();
+  records.forEach(x => (x.tags||[]).forEach(t => allTags.add(t)));
+  (r.tags||[]).forEach(t => allTags.add(t));
+  const presets = [...allTags].sort();
+  document.getElementById('np-tags').innerHTML = presets.map(t=>`<div class="tag ${(r.tags||[]).includes(t)?'active':''}" onclick="npToggleTag('${t}')">${t}</div>`).join('') +
+    `<div class="tag add-tag" onclick="npAddTag()">+ add</div>`;
 }
 
 function setNpCond(c) {
@@ -1308,6 +1319,25 @@ function setNpCond(c) {
   if (!nowPlayingId) return;
   const r = records.find(x=>x.id===nowPlayingId);
   if (r) { r.media_condition=c; writeToSupabase(r.id,{media_condition:c}); renderPlaying(); }
+}
+
+function npToggleTag(tag) {
+  if (!editUnlocked) { requestEdit(); return; }
+  if (!nowPlayingId) return;
+  const r = records.find(x=>x.id===nowPlayingId);
+  if (!r) return;
+  const tags = [...(r.tags||[])];
+  const i = tags.indexOf(tag);
+  if (i>-1) tags.splice(i,1); else tags.push(tag);
+  r.tags = tags;
+  writeToSupabase(r.id, {tags});
+  updateNowPlayingCard();
+}
+
+function npAddTag() {
+  if (!editUnlocked) { requestEdit(); return; }
+  const t = prompt('New tag:');
+  if (t && t.trim()) npToggleTag(t.trim().toLowerCase());
 }
 
 // \u2500\u2500 UNSAVED SHEET \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
