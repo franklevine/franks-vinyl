@@ -494,6 +494,9 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
           <span class="search-icon">&#8981;</span>
           <input type="search" id="np-search-input" class="search-input" placeholder="Search your collection&#8230;" autocomplete="off" autocorrect="off" spellcheck="false">
         </div>
+        <div class="filters-scroll" id="np-genre-chips" style="margin-top:8px;"></div>
+        <div class="filters-scroll" id="np-style-chips" style="display:none;"></div>
+        <div class="filters-scroll" id="np-tag-chips" style="margin-top:4px;"></div>
         <div class="np-picker-results" id="np-picker-results"></div>
         <div id="np-selected-label" style="font-family:'Playfair Display',serif;font-size:var(--fs-md);color:var(--text);padding:8px 0;display:none;"></div>
       </div>
@@ -589,10 +592,11 @@ html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--tex
       <span class="nav-icon">&#8981;</span>
       <span class="nav-label">Search</span>
     </button>
-    <button class="nav-tab" data-tab="wantlist" onclick="switchTab('wantlist')">
+    <!-- Wantlist tab disabled for now -->
+    <!--<button class="nav-tab" data-tab="wantlist" onclick="switchTab('wantlist')">
       <span class="nav-icon">&#9825;</span>
       <span class="nav-label">Wantlist</span>
-    </button>
+    </button>-->
     <button class="nav-tab" data-tab="pending" onclick="switchTab('pending')" id="pending-tab" style="position:relative;">
       <span class="nav-icon">&#9873;</span>
       <span class="nav-label">Pending</span>
@@ -669,6 +673,9 @@ let pinBuffer = '';
 let pendingEdits = {};
 let hasUnsaved = false;
 let nowPlayingId = null;
+let npGenreFilter = 'all';
+let npStyleFilter = 'all';
+let npTagFilter = 'all';
 let navHistory = ['catalog'];
 let deferredInstall = null;
 
@@ -867,6 +874,15 @@ async function fetchDiscogsImage(r) {
       renderCatalog();
     }
   } catch(e) {}
+}
+
+async function prefetchAlbumArt() {
+  const missing = records.filter(r => !r.image_url && r.discogs_url);
+  if (!missing.length) return;
+  for (const r of missing) {
+    await fetchDiscogsImage(r);
+    await new Promise(ok => setTimeout(ok, 1100)); // Discogs rate limit
+  }
 }
 
 function renderDetail(r) {
@@ -1140,7 +1156,7 @@ function switchTab(tab) {
   currentRecord = null;
   showView(tab);
   if (tab==='catalog') renderCatalog();
-  if (tab==='wantlist') renderWantlist();
+
   if (tab==='pending') renderPending();
   if (tab==='playing') renderPlaying();
   if (tab==='search') document.getElementById('store-search-input').focus();
@@ -1256,7 +1272,50 @@ function quickConfirm(id) {
 }
 
 // \u2500\u2500 PLAYING \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+function npFilteredRecords() {
+  let d = [...records];
+  if (npGenreFilter !== 'all') d = d.filter(r => (r.genres||[]).includes(npGenreFilter));
+  if (npStyleFilter !== 'all') d = d.filter(r => (r.styles||[]).includes(npStyleFilter));
+  if (npTagFilter !== 'all') d = d.filter(r => (r.tags||[]).includes(npTagFilter));
+  return d;
+}
+
+function renderNpFilters() {
+  // Genre chips
+  const genres = new Set();
+  records.forEach(r => (r.genres||[]).forEach(g => genres.add(g)));
+  const sortedGenres = [...genres].sort();
+  document.getElementById('np-genre-chips').innerHTML =
+    `<div class="chip ${npGenreFilter==='all'?'active':''}" data-np-genre="all">All</div>` +
+    sortedGenres.map(g => `<div class="chip ${npGenreFilter===g?'active':''}" data-np-genre="${g}">${g}</div>`).join('');
+
+  // Style chips (only show when a genre is selected)
+  const styleEl = document.getElementById('np-style-chips');
+  if (npGenreFilter !== 'all') {
+    const styles = new Set();
+    records.filter(r => (r.genres||[]).includes(npGenreFilter)).forEach(r => (r.styles||[]).forEach(s => styles.add(s)));
+    const sortedStyles = [...styles].sort();
+    if (sortedStyles.length) {
+      styleEl.style.display = '';
+      styleEl.innerHTML =
+        `<div class="chip ${npStyleFilter==='all'?'active':''}" data-np-style="all">All styles</div>` +
+        sortedStyles.map(s => `<div class="chip ${npStyleFilter===s?'active':''}" data-np-style="${s}">${s}</div>`).join('');
+    } else { styleEl.style.display = 'none'; styleEl.innerHTML = ''; }
+  } else { styleEl.style.display = 'none'; styleEl.innerHTML = ''; npStyleFilter = 'all'; }
+
+  // Tag chips
+  const tags = new Set();
+  records.forEach(r => (r.tags||[]).forEach(t => tags.add(t)));
+  const sortedTags = [...tags].sort();
+  if (sortedTags.length) {
+    document.getElementById('np-tag-chips').innerHTML =
+      `<div class="chip ${npTagFilter==='all'?'active':''}" data-np-tag="all">All tags</div>` +
+      sortedTags.map(t => `<div class="chip ${npTagFilter===t?'active':''}" data-np-tag="${t}">${t}</div>`).join('');
+  }
+}
+
 function renderPlaying() {
+  renderNpFilters();
   const conditions = ['Mint','Near Mint','Very Good Plus','Very Good','Good'];
   const optsEl = document.getElementById('np-media-opts');
   if (optsEl) optsEl.innerHTML = conditions.map(c=>`<div class="cond-opt ${nowPlayingId&&records.find(r=>r.id===nowPlayingId)?.media_condition===c?'active':''}" onclick="setNpCond('${c}')">${c}</div>`).join('');
@@ -1407,23 +1466,58 @@ document.getElementById('wantlist-search-input').addEventListener('input', e => 
   renderWantlist();
 });
 
-document.getElementById('np-search-input').addEventListener('input', e => {
-  const q = e.target.value.trim();
+function npRenderSearch() {
+  const q = document.getElementById('np-search-input').value.trim();
   const resultsEl = document.getElementById('np-picker-results');
-  if (!q) { resultsEl.innerHTML = ''; return; }
+  const filtered = npFilteredRecords();
+  if (!q && npGenreFilter === 'all' && npStyleFilter === 'all' && npTagFilter === 'all') { resultsEl.innerHTML = ''; return; }
   const ql = q.toLowerCase();
-  const matches = records.filter(r => r.artist.toLowerCase().includes(ql) || r.title.toLowerCase().includes(ql)).slice(0, 10);
+  let matches = filtered;
+  if (q) matches = matches.filter(r => r.artist.toLowerCase().includes(ql) || r.title.toLowerCase().includes(ql));
+  matches = matches.slice(0, 20);
   if (!matches.length) {
     resultsEl.innerHTML = '<div style="padding:14px 16px;color:var(--text-muted);font-size:var(--fs-sm);">No matches</div>';
     return;
   }
-  resultsEl.innerHTML = matches.map(r =>
-    `<div class="np-picker-result" onclick="pickNowPlaying('${r.id}')">` +
-    `<div class="sr-disc"><div class="sr-disc-label">${initials(r.artist)}</div></div>` +
+  resultsEl.innerHTML = matches.map(r => {
+    const discImg = r.image_url ? `<img class="disc-img" src="${r.image_url}" alt="" loading="lazy" onerror="this.remove();this.nextElementSibling.style.display=''">` : '';
+    const labelHide = r.image_url ? ' style="display:none"' : '';
+    return `<div class="np-picker-result" onclick="pickNowPlaying('${r.id}')">` +
+    `<div class="sr-disc">${discImg}<div class="sr-disc-label"${labelHide}>${initials(r.artist)}</div></div>` +
     `<div class="sr-info"><div class="sr-artist">${r.artist}</div>` +
     `<div class="sr-title">${r.title}</div>` +
-    `<div class="sr-meta">${r.label||''}${r.format?' \u00b7 '+r.format:''}${r.year?' \u00b7 '+r.year:''}</div></div></div>`
-  ).join('');
+    `<div class="sr-meta">${r.label||''}${r.format?' \u00b7 '+r.format:''}${r.year?' \u00b7 '+r.year:''}</div></div></div>`;
+  }).join('');
+}
+
+document.getElementById('np-search-input').addEventListener('input', npRenderSearch);
+
+// Playing view genre filter
+document.getElementById('np-genre-chips').addEventListener('click', e => {
+  const chip = e.target.closest('.chip');
+  if (!chip || !chip.dataset.npGenre) return;
+  npGenreFilter = chip.dataset.npGenre;
+  npStyleFilter = 'all';
+  renderNpFilters();
+  npRenderSearch();
+});
+
+// Playing view style filter
+document.getElementById('np-style-chips').addEventListener('click', e => {
+  const chip = e.target.closest('.chip');
+  if (!chip || !chip.dataset.npStyle) return;
+  npStyleFilter = chip.dataset.npStyle;
+  renderNpFilters();
+  npRenderSearch();
+});
+
+// Playing view tag filter
+document.getElementById('np-tag-chips').addEventListener('click', e => {
+  const chip = e.target.closest('.chip');
+  if (!chip || !chip.dataset.npTag) return;
+  npTagFilter = chip.dataset.npTag;
+  renderNpFilters();
+  npRenderSearch();
 });
 
 // \u2500\u2500 LIGHTBOX \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
@@ -1478,8 +1572,8 @@ document.getElementById('content').addEventListener('touchend', e=>{
 
 // \u2500\u2500 INIT \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 showView('catalog');
-fetchFromSupabase();
-fetchWantlistFromSupabase();
+fetchFromSupabase().then(() => prefetchAlbumArt());
+// fetchWantlistFromSupabase(); // Wantlist disabled for now
 </script>
 
 <!-- SERVICE WORKER REGISTRATION -->
